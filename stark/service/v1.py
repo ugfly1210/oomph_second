@@ -183,13 +183,14 @@ class ChangeList(object):
             for field_name in self.list_display:
                 if isinstance(field_name,str):
                     val = getattr(row,field_name) # # 2 alex2
-                    # 定制编辑列
-                    # 判断字段是否在edit_link里面,并生成a标签
-                    if field_name in self.edit_link:
-                        val = self.edit_link_tag(row.pk,val)
-
                 else:
                     val = field_name(self.config,row)
+
+                # 定制编辑列
+                # 判断字段是否在edit_link里面,并生成a标签
+                if field_name in self.edit_link:
+                    val = self.edit_link_tag(row.pk, val)
+
                 temp.append(val)
             new_data_list.append(temp)
 
@@ -380,6 +381,7 @@ class StarkConfig(object):
         return url_patterns
     def extra_url(self):
         return []
+
     @property
     def urls(self):
         return self.get_urls()
