@@ -51,11 +51,7 @@ class Course(models.Model):
 class School(models.Model):
     """
     校区表
-    如：
-        北京海淀校区
-        北京昌平校区
-        上海虹口校区
-        广州白云山校区
+
     """
     title = models.CharField(verbose_name='校区名称', max_length=32)
 

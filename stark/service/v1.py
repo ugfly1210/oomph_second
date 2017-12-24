@@ -16,7 +16,6 @@ from django.db.models import Q
 class FilterOption(object):
     def __init__(self,field_name,multi=False,condition=None,is_choice=False,text_func_name=None,val_func_name=None):
         """
-        
         :param field_name: 字段
         :param multi:  是否多选
         :param condition: 显示数据的筛选条件
@@ -41,13 +40,12 @@ class FilterOption(object):
     def get_choices(self,_field):
         return _field.choices
 
+
 class FilterRow(object):
     def __init__(self,option, data, request):
         self.data = data
-        self.option = option # option 就是我们要配置的对象  v1.FilterOption('depart',text_func_name=None,val_func_name=None)
-        # request.GET
+        self.option = option # option: 要配置的对象  v1.FilterOption('depart',text_func_name=None,val_func_name=None)
         self.request = request
-
 
     def __iter__(self):
         params = copy.deepcopy(self.request.GET)
@@ -74,7 +72,6 @@ class FilterRow(object):
                 text = self.option.text_func_name(val) if self.option.text_func_name else str(val)
                 pk = str(self.option.val_func_name(val)) if self.option.val_func_name else str(val.pk)
                 # pk = str(self.option.val_func_name(val)) if self.option.val_func_name else str(val.pk)
-
                 # pk,text = str(val.pk), str(val)
             # 当前URL？option.field_name
             # 当前URL？gender=pk
@@ -107,8 +104,6 @@ class FilterRow(object):
                     yield mark_safe("<a href='{0}'>{1}</a>".format(url, text))
 
 
-
-
 class ChangeList(object):
 
     def __init__(self,config,queryset):
@@ -122,6 +117,7 @@ class ChangeList(object):
         self.actions = config.get_actions()
         self.show_actions = config.get_show_actions()
         self.comb_filter = config.get_comb_filter()
+        self.show_comb_filter = config.get_show_comb_filter()
         self.edit_link = config.get_edit_link()
 
         # 搜索用
@@ -177,12 +173,12 @@ class ChangeList(object):
         data_list = self.data_list
         new_data_list = []
         for row in data_list:
-            # row是 UserInfo(id=2,name='alex2',age=181)
+            # row是 UserInfo(id=2,name='dd2',age=181)
             # row.id,row.name,row.age
             temp = []
             for field_name in self.list_display:
                 if isinstance(field_name,str):
-                    val = getattr(row,field_name) # # 2 alex2
+                    val = getattr(row,field_name) # # 2 ff2
                 else:
                     val = field_name(self.config,row)
 
@@ -237,7 +233,6 @@ class ChangeList(object):
         return mark_safe('<a href="%s?%s">%s</a>' % (self.config.get_change_url(pk), params.urlencode(),text))  # /stark/app01/userinfo/
 
 
-
 class StarkConfig(object):
     """
     用于处理stark中增删改查的基类
@@ -264,7 +259,6 @@ class StarkConfig(object):
             params[self._query_param_key] = query_str
             return mark_safe('<a href="%s?%s">编辑</a>' %(self.get_change_url(obj.id),params.urlencode(),)) # /stark/app01/userinfo/
         return mark_safe('<a href="%s">编辑</a>' % (self.get_change_url(obj.id),))  # /stark/app01/userinfo/
-
     def delete(self,obj=None,is_header=False):
         if is_header:
             return '删除'
@@ -354,6 +348,10 @@ class StarkConfig(object):
             result.extend(self.comb_filter)
         return result
 
+    # 是否显示组合搜索框
+    show_comb_filter = False
+    def get_show_comb_filter(self):
+        return self.show_comb_filter
 
     def __init__(self,model_class,site):
         self.model_class = model_class
@@ -432,10 +430,9 @@ class StarkConfig(object):
 
             if flag:
                 comb_condition["%s__in" %key] = value_list
-            print(comb_condition)
 
         queryset = self.model_class.objects.filter(self.get_search_condition()).filter(**comb_condition).distinct()
-        print(queryset) # print(queryset.query) 这里可以看到它生成的sql语句
+        # print(queryset) # print(queryset.query) 这里可以看到它生成的sql语句
 
         cl = ChangeList(self,queryset)  # ChangeList 就是封装列表页面所有功能的
         return render(request,'stark/changelist.html',{'cl':cl})

@@ -6,77 +6,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
-    <link rel="stylesheet" href="{% static "stark/bootstrap/css/bootstrap.css" %}" />
+    <link rel="stylesheet" href="{% static "stark/bootstrap/css/bootstrap.css" %}"/>
     <style>
-        .list-filter a{
+        .list-filter a {
             display: inline-block;
             padding: 3px 6px;
             border: 1px solid #2e6da4;
             margin: 3px 0;
         }
-        .list-filter a.active{
+
+        .list-filter a.active {
             background-color: #2e6da4;
             color: white;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+<div class="container">
     <h1>列表页面</h1>
-    <div class="list-filter">
-        {% for filter_row in  cl.gen_comb_filter %}
-            <div>
-                {% for col in filter_row  %}
-                    {{ col }}
-                {% endfor %}
-            </div>
-        {% endfor %}
-    </div>
-
+    {% if cl.show_comb_filter %}
+        <div class="list-filter">
+            {% for filter_row in  cl.gen_comb_filter %}
+                <div>
+                    {% for col in filter_row %}
+                        {{ col }}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
     {% if cl.show_search_form %}
         <div class="form-group pull-right">
             <form method="get">
-                <input name="{{ cl.config.search_key }}" value="{{ cl.search_form_val }}" class="form-control" placeholder="请输入搜索条件" type="text"  style="display:inline-block;width: 200px;"/>
+                <input name="{{ cl.config.search_key }}" value="{{ cl.search_form_val }}" class="form-control"
+                       placeholder="请输入搜索条件" type="text" style="display:inline-block;width: 200px;"/>
                 <button class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
 
             </form>
         </div>
     {% endif %}
-<div style="margin: 5px 0">
-    {% if cl.show_add_btn %}
-        <a class="btn btn-danger" href="{{ cl.add_url }}">添加</a>
-    {% endif %}
-</div>
+    <div style="margin: 5px 0">
+        {% if cl.show_add_btn %}
+            <a class="btn btn-danger" href="{{ cl.add_url }}">添加</a>
+        {% endif %}
+    </div>
     <form method="post">
         {% csrf_token %}
         {% if cl.show_actions %}
             <div class="form-group">
-            <select name="list_action" class="form-control" style="display:inline-block;width: 200px;">
-                {% for item in cl.modify_actions %}
-                    <option value="{{ item.name }}">{{ item.text }}</option>
-                {% endfor %}
-<div><span class="glyphicon glyphicon-trash"></span></div>
-            </select>
-            <button class="btn btn-primary">执行</button>
-        </div>
+                <select name="list_action" class="form-control" style="display:inline-block;width: 200px;">
+                    {% for item in cl.modify_actions %}
+                        <option value="{{ item.name }}">{{ item.text }}</option>
+                    {% endfor %}
+                    <div><span class="glyphicon glyphicon-trash"></span></div>
+                </select>
+                <button class="btn btn-primary">执行</button>
+            </div>
         {% endif %}
         <table class="table table-bordered">
             <thead>
-                <tr>
-                    {% for item in cl.head_list %}
-                        <th>{{ item }}</th>
-                    {% endfor %}
-                </tr>
+            <tr>
+                {% for item in cl.head_list %}
+                    <th>{{ item }}</th>
+                {% endfor %}
+            </tr>
             </thead>
             <tbody>
-                {% for obj in cl.body_list %}
-                    <tr>
-                        {% for col in obj %}
-                            <td>{{ col }}</td>
-                        {% endfor %}
-                    </tr>
-                {% endfor %}
+            {% for obj in cl.body_list %}
+                <tr>
+                    {% for col in obj %}
+                        <td>{{ col }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     </form>
@@ -85,6 +88,6 @@
             {{ cl.page_obj.bootstrap_page_html|safe }}
         </ul>
     </div>
-    </div>
+</div>
 </body>
 </html>
