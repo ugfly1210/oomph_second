@@ -6,20 +6,32 @@ from django.utils.safestring import mark_safe
 from django.urls import reverse
 from django.http import QueryDict
 from django.db.models import Q
+"""
+请求来之后先到changelist_view里面,
+然后把列表页面所有代码放在ChangeList类里面
+
+"""
+
+
 class FilterOption(object):
-    def __init__(self,field_name,multi=False,condition=None,is_choice=False):
+    def __init__(self,field_name,multi=False,condition=None,is_choice=False,text_func_name=None,val_func_name=None):
         """
         
         :param field_name: 字段
         :param multi:  是否多选
         :param condition: 显示数据的筛选条件
         :param is_choice: 是否是choice
+        :param text_func_name: 在Model中定义函数,显示文本名称,默认使用str(对象)
+        :param val_func_name: 在Model中定义函数,页面生成的a标签中对应的值的函数.  默认使用 对象.pk
         """
         self.field_name = field_name
         self.multi = multi
         self.is_choice = is_choice
 
         self.condition = condition
+
+        self.text_func_name = text_func_name
+        self.val_func_name = val_func_name
 
     def get_queryset(self,_field):
         if self.condition:
@@ -32,7 +44,7 @@ class FilterOption(object):
 class FilterRow(object):
     def __init__(self,option, data, request):
         self.data = data
-        self.option = option
+        self.option = option # option 就是我们要配置的对象  v1.FilterOption('depart',text_func_name=None,val_func_name=None)
         # request.GET
         self.request = request
 
@@ -54,10 +66,16 @@ class FilterRow(object):
             yield mark_safe('<a class="active" href="{0}">全部</a>'.format(url))
         # ( (1,男),(2,女)  )
         for val in self.data:
+            print('val---',val)
             if self.option.is_choice:
                 pk,text = str(val[0]),val[1]
             else:
-                pk,text = str(val.pk), str(val)
+                # 如果你设置了这个函数就走你设置的函数,否则 str(val) str(val.pk)
+                text = self.option.text_func_name(val) if self.option.text_func_name else str(val)
+                pk = str(self.option.val_func_name(val)) if self.option.val_func_name else str(val.pk)
+                # pk = str(self.option.val_func_name(val)) if self.option.val_func_name else str(val.pk)
+
+                # pk,text = str(val.pk), str(val)
             # 当前URL？option.field_name
             # 当前URL？gender=pk
             # self.request.path_info # http://127.0.0.1:8005/arya/crm/customer/?gender=1&id=2
@@ -209,7 +227,7 @@ class ChangeList(object):
                 # data_list.append(  FilterRow(_field.choices) )
                 row = FilterRow(option,option.get_choices(_field),self.request)
             # 可迭代对象
-            yield row
+            yield row # 每一个row就是一行搜索条件,又放到了filterrow类里面
 
     def edit_link_tag(self,pk,text):
         query_str = self.request.GET.urlencode()
@@ -412,9 +430,10 @@ class StarkConfig(object):
 
             if flag:
                 comb_condition["%s__in" %key] = value_list
+            print(comb_condition)
 
         queryset = self.model_class.objects.filter(self.get_search_condition()).filter(**comb_condition).distinct()
-
+        print(queryset) # print(queryset.query) 这里可以看到它生成的sql语句
 
         cl = ChangeList(self,queryset)  # ChangeList 就是封装列表页面所有功能的
         return render(request,'stark/changelist.html',{'cl':cl})

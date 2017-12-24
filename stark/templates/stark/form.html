@@ -8,9 +8,9 @@
                     <!-- 判断，如果field是ModelChoiceField，则FK； 如果是ModelMultipleChoiceField，则M2M -->
                     {{ dic.item }}
                     {% if dic.is_popup %}
-                        <a onclick="popUp('{{ dic.popup_url }}')">popup</a>
+                        <a onclick="popUp('{{ dic.popup_url }}')">我是PopUp</a>
                     {% endif %}
-                    {{ dic.item.field.errors.0 }}
+                    {{ dic.item.errors.0 }}
                 </div>
             </div>
         </div>
