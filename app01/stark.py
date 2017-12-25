@@ -13,6 +13,7 @@ v1.site.register(models.Department,DepartmentConfig)
 
 class UserInfoConfig(v1.StarkConfig):
     list_display = ['name','username','email','depart']
+
     # 组合搜索
     comb_filter = [
         v1.FilterOption('depart',text_func_name=lambda x:str(x),val_func_name=lambda x:x.code) # 字段  只在chioce,fk,m2m有用
@@ -157,8 +158,9 @@ class ConsultRecordConfig(v1.StarkConfig):
     客户跟进记录
     """
     show_comb_filter = False
+
     comb_filter = [
-        v1.FilterOption('customer')
+        v1.FilterOption('customer'),
     ]
 
     def changelist_view(self,request,*args,**kwargs):

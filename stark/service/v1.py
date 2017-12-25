@@ -438,25 +438,51 @@ class StarkConfig(object):
         return render(request,'stark/changelist.html',{'cl':cl})
 
     def add_view(self,request,*args,**kwargs):
-
         model_form_class = self.get_model_form_class()
         _popbackid = request.GET.get('_popbackid')
         if request.method == "GET":
             form = model_form_class()
-            return render(request,'stark/add_view.html',{'form':form})
+            return render(request,'stark/add_view.html',{'form':form,'config':self})
         else:
             form = model_form_class(request.POST)
             if form.is_valid():
                 # 数据库中创建数据
                 new_obj = form.save()
+                print('new_obj',str(new_obj))
                 if _popbackid:
                     # 是popup请求
                     # render一个页面，写自执行函数
-                    result = {'id':new_obj.pk, 'text':str(new_obj),'popbackid':_popbackid }
+                    # popUp('/stark/app01/userinfo/add/?_popbackid=id_consultant&model_name=customer&related_name=consultant')
+
+                    from django.db.models.fields.reverse_related import ManyToOneRel, ManyToManyRel
+                    result = {'status':False,'id':None,'text':None,'popbackid':_popbackid}
+                    model_name = request.GET.get('model_name') # 获得当前所在的类名 customer
+                    related_name = request.GET.get('related_name') #获得related_name  consultant                related_name = request.GET.get('related_name') #获得related_name
+                    # print(model_name,related_name,new_obj._meta.model_name)   customer consultant userinfo
+                    for related_obj in new_obj._meta.related_objects:
+                        _model_name = related_obj.model._meta.model_name # 当前增加的表的名称
+                        _related_name = related_obj.related_name         # 当前表关联的related_name
+
+                        if type(related_obj) == ManyToOneRel:   # 判断如果是FK的话
+                            _field_name = related_obj.field_name # code (to_field) 关联的字段
+                        else:
+                            _field_name = 'pk'
+                        _limit_choices_to = related_obj.limit_choices_to
+                        print('471_limit_choices_to',_limit_choices_to)
+                        if model_name == _model_name and related_name == str(_related_name):
+                            is_exists = self.model_class.objects.filter(**_limit_choices_to,pk=new_obj.id).exists()
+                            if is_exists:
+                                # 如果是新创建用户是销售部的人, 页面才会显示该新增选项
+                                result['status'] = True
+                                result['text'] = str(new_obj)
+                                result['id'] = getattr(new_obj,_field_name)
+                                print(result)
+                                return render(request, 'stark/popup_response.html',{'json_result': json.dumps(result, ensure_ascii=False)})
+                    # result = {'id':new_obj.pk, 'text':str(new_obj),'popbackid':_popbackid }
                     return render(request,'stark/popup_response.html',{'json_result':json.dumps(result,ensure_ascii=False)})
                 else:
                     return redirect(self.get_list_url())
-            return render(request, 'stark/add_view.html', {'form': form})
+            return render(request, 'stark/add_view.html', {'form': form,'config':self})
 
     def change_view(self,request,nid,*args,**kwargs):
         # self.model_class.objects.filter(id=nid)
@@ -468,7 +494,7 @@ class StarkConfig(object):
         # GET,显示标签+默认值
         if request.method == 'GET':
             form = model_form_class(instance=obj)
-            return render(request,'stark/change_view.html',{'form':form})
+            return render(request,'stark/change_view.html',{'form':form,'config':self})
         else:
             form = model_form_class(instance=obj,data=request.POST)
             if form.is_valid():
@@ -476,9 +502,7 @@ class StarkConfig(object):
                 list_query_str = request.GET.get(self._query_param_key)
                 list_url = "%s?%s" %(self.get_list_url(),list_query_str,)
                 return redirect(list_url)
-            return render(request, 'stark/change_view.html', {'form': form})
-
-        return HttpResponse('修改')
+            return render(request, 'stark/change_view.html', {'form': form,'config':self})
 
     def delete_view(self,request,nid,*args,**kwargs):
         self.model_class.objects.filter(pk=nid).delete()
