@@ -164,10 +164,37 @@ class Customer(models.Model):
     )
     consultant = models.ForeignKey(verbose_name="课程顾问", to='UserInfo', related_name='consultant',limit_choices_to={'depart_id':1005})
     date = models.DateField(verbose_name="咨询日期", auto_now_add=True)
+
+    recv_date = models.DateField(verbose_name='接单时间',null=True,blank=True)
+
     last_consult_date = models.DateField(verbose_name="最后跟进日期", auto_now_add=True)
 
     def __str__(self):
         return "姓名:{0},QQ:{1}".format(self.name, self.qq, )
+
+
+class CustomerDistribution(models.Model):
+    """客户分配表"""
+    user = models.ForeignKey(verbose_name="当前客户顾问",to='UserInfo',limit_choices_to={'depart_id':1005},related_name="cds",null=True,blank=True)
+    customer = models.ForeignKey(verbose_name="客户",to="Customer",related_name="dealers",null=True,blank=True)
+    ctime = models.DateField(auto_now_add=True,null=True,blank=True)
+    status_choices = (
+        (1,'正在跟进'),
+        (2,'已成单'),
+        (3,'三天未跟进'),
+        (4,'十五天未成单'),
+    )
+    status = models.IntegerField(verbose_name="状态",choices=status_choices,default=1)
+    memo = models.CharField(verbose_name="更多信息",max_length=255,null=True,blank=True)
+
+
+class SaleRank(models.Model):
+    """销售权重与分配"""
+    user = models.ForeignKey(to="UserInfo",verbose_name='课程顾问',limit_choices_to={'depart':1005})
+    num = models.IntegerField(verbose_name='数量')
+    weight = models.IntegerField(verbose_name='权重')
+    def __str__(self):
+        return '权重:{0}🤖;num:{1}'.format(self.weight,self.num)
 
 
 class ConsultRecord(models.Model):
@@ -175,7 +202,7 @@ class ConsultRecord(models.Model):
     客户跟进记录
     """
     customer = models.ForeignKey(verbose_name="所咨询客户", to='Customer')
-    consultant = models.ForeignKey(verbose_name="跟踪人", to='UserInfo')
+    consultant = models.ForeignKey(verbose_name="跟踪人", to='UserInfo',limit_choices_to={'depart_id':1005})
     date = models.DateField(verbose_name="跟进日期", auto_now_add=True)
     note = models.TextField(verbose_name="跟进内容...")
 
@@ -233,7 +260,7 @@ class CourseRecord(models.Model):
     """
     class_obj = models.ForeignKey(verbose_name="班级", to="ClassList")
     day_num = models.IntegerField(verbose_name="节次", help_text=u"此处填写第几节课或第几天课程...,必须为数字")
-    teacher = models.ForeignKey(verbose_name="讲师", to='UserInfo')
+    teacher = models.ForeignKey(verbose_name="讲师", to='UserInfo',limit_choices_to={'depart_id__in':[1003,1004]})
     date = models.DateField(verbose_name="上课日期", auto_now_add=True)
 
     course_title = models.CharField(verbose_name='本节课程标题', max_length=64, blank=True, null=True)

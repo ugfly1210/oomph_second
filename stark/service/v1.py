@@ -270,7 +270,7 @@ class StarkConfig(object):
         data = []
         if self.list_display:
             data.extend(self.list_display)
-            # data.append(StarkConfig.edit)
+            data.append(StarkConfig.edit)
             data.append(StarkConfig.delete)
             data.insert(0,StarkConfig.checkbox)
         return data
@@ -353,6 +353,13 @@ class StarkConfig(object):
     def get_show_comb_filter(self):
         return self.show_comb_filter
 
+    # 7. 排序
+    order_by = []
+    def get_order_by(self):
+        result = []
+        result.extend(self.order_by)
+        return result
+
     def __init__(self,model_class,site):
         self.model_class = model_class
         self.site = site
@@ -431,7 +438,7 @@ class StarkConfig(object):
             if flag:
                 comb_condition["%s__in" %key] = value_list
 
-        queryset = self.model_class.objects.filter(self.get_search_condition()).filter(**comb_condition).distinct()
+        queryset = self.model_class.objects.filter(self.get_search_condition()).filter(**comb_condition).order_by(*self.get_order_by()).distinct()
         # print(queryset) # print(queryset.query) 这里可以看到它生成的sql语句
 
         cl = ChangeList(self,queryset)  # ChangeList 就是封装列表页面所有功能的

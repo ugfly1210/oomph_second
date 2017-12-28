@@ -1,0 +1,27 @@
+{% extends 'stark/layout.html' %}
+{% block body %}
+<h1>我的服务记录</h1>
+<div class="col-md-12">
+<table  class="table table-bordered table-hover">
+
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>服务过的用户</th>
+        <th>状态</th>
+        <th>更多信息</th>
+   </tr>
+    </thead>
+    <tbody>
+        {% for item in customer_list %}
+            <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.customer }}</td>
+            <td>{{ item.get_status_display }}</td>
+            <td>{{ item.memo }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

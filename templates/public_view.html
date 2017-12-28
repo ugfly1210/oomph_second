@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公共资源界面&支持抢单</title>
+
+{#    <link rel="stylesheet" href="{% static "stark/bootstrap/css/bootstrap.css" %}" />#}
+    <link rel="stylesheet" href="{% static 'stark/bootstrap/css/bootstrap.css' %}"/>
+</head>
+<body>
+<div class="container" style="margin-top: 100px">
+
+<div class="col-md-10">
+<h1>公共资源界面 & 支持抢单</h1>
+<table  class="table table-bordered table-hover" >
+
+    <thead >
+    <tr>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>QQ</th>
+        <th>抢单</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for item in customer_list %}
+            <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.qq }}</td>
+            <td>
+                {% if item.consultant_id == current_user_id %}
+                    <span class="glyphicon glyphicon-piggy-bank">不配</span>
+                {% else %}
+                <a href="/stark/app01/customer/{{ item.id }}/competition/">抢单单</a>
+                                {% endif %}
+            </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+</div>
+</body>
+</html>

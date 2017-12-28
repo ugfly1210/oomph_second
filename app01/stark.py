@@ -3,6 +3,7 @@ from stark.service import v1
 from app01 import models
 from django.conf.urls import url
 from django.utils.safestring import mark_safe
+from app01.configs.customer import CustomerConfig
 
 
 class DepartmentConfig(v1.StarkConfig):
@@ -75,81 +76,6 @@ class ClassListConfig(v1.StarkConfig):
 v1.site.register(models.ClassList,ClassListConfig)
 
 
-class CustomerConfig(v1.StarkConfig):
-    def display_gender(self,obj=None,is_header=None):
-        if is_header:
-            return '性别'
-        return obj.get_gender_display()
-
-    def display_education(self,obj=None,is_header=None):
-        if is_header:
-            return '学历'
-        return obj.get_education_display()
-
-    def display_source(self,obj=None,is_header=None):
-        if is_header:
-            return '客户来源'
-        return obj.get_source_display()
-
-    def display_course(self,obj=None,is_header=None):
-        if is_header:
-            return '咨询课程'
-        html = []
-        obj_list = obj.course.all()
-        for obj1 in obj_list:
-            temp = "<a style='display:inline-block;padding:3px 5px;border:2px solid red;margin:2px;' href='/stark/app01/customer/%s/%s/dc/'>%s <span class='glyphicon glyphicon-trash'></span></a>" %(obj.pk,obj1.pk,obj1.name)
-            html.append(temp)
-        return mark_safe(''.join(html))
-
-    def display_status(self,obj=None,is_header=None):
-        """
-        客户状态是可以点击修改的
-        :param obj:
-        :param is_header:
-        :return:
-        """
-        if is_header:
-            return '客户状态'
-        # print('obj......',obj)   姓名:骚伟,QQ:123456
-        return obj.get_status_display()
-
-    def record(self,obj=None,is_header=None):
-        """客户跟进记录,
-           http://127.0.0.1:8000/stark/app01/consultrecord/?customer=1
-        """
-        if is_header:
-            return '客户跟进记录'
-        return mark_safe("<a href='/stark/app01/consultrecord/?customer=%s'>查看跟进记录</a>"%(obj.pk))
-
-    def delete_course(self,request,customer_id,course_id):
-        """
-        删除当前用户感兴趣的课程
-        :param request:
-        :param customer_id:
-        :param course_id:
-        :return:
-        """
-        # print('self.model_class=,=',self.model_class.objects.all())
-        # < QuerySet[ < Customer: 姓名:骚伟, QQ: 123456 >] >
-        customer_obj = self.model_class.objects.filter(pk=customer_id).first()
-        # 在多对多字段中可以remove,
-        customer_obj.course.remove(course_id)
-        # ####################作业:  删除完成跳转回来的时候,带着走的时候的url
-        # self.request.GET
-        # self._query_param_key
-        # 构造QueryDict
-        # urlencode()
-        return redirect(self.get_list_url())
-
-    def extra_url(self):
-        app_model_name = (self.model_class._meta.app_label,self.model_class._meta.model_name,)
-        patterns = [
-            url(r'^(\d+)/(\d+)/dc/$', self.wrap(self.delete_course), name="%s_%s_dc" %app_model_name),
-        ]
-        return patterns
-
-    list_display = ['name','referral_from',display_gender,display_education,display_source,display_course,display_status,record]
-    edit_link = ['name']
 v1.site.register(models.Customer,CustomerConfig)
 
 
@@ -163,9 +89,14 @@ class ConsultRecordConfig(v1.StarkConfig):
         v1.FilterOption('customer'),
     ]
 
+    show_actions = True
+    actions = []
+    edit_link = ['customer']
+
     def changelist_view(self,request,*args,**kwargs):
         customer = request.GET.get('customer')
         current_login_user_id = 9
+
         ct = models.Customer.objects.filter(id=customer,consultant_id=current_login_user_id).first()
         if not ct :
             return HttpResponse('好好干你的活,拉你的人不行吗??? 嗯???💩💩💩💩💩💩💩💩💩💩')
@@ -173,3 +104,51 @@ class ConsultRecordConfig(v1.StarkConfig):
 
     list_display = ['customer','consultant','date']
 v1.site.register(models.ConsultRecord,ConsultRecordConfig)
+
+
+
+"""
+1. 初始化学生学习记录
+
+2. 考勤管理
+
+3. 录成绩
+
+4. 查看到学生所有成绩【highchart】
+"""
+
+class CourseRecordConfig(v1.StarkConfig):
+    """上课记录表"""
+
+    def display_score_list(self,obj=None,is_header=False):
+        if is_header:
+            return '成绩录入'
+
+
+    def mutil_init(self,request):
+        """自定义批量初始化方法"""
+        # 上课记录id列表
+        pk_list = request.POST.getlist('pk')
+        # 上课记录对象列表
+        record_list = models.CourseRecord.objects.filter(id__in=pk_list)
+
+        for record in record_list:
+            if models.StudyRecord.objects.filter(course_record=record).exists():
+                continue
+            student_list = models.Student.objects.filter(class_list=record.class_obj)
+            # 为每一个学生创建dayn的学习记录
+            bulk_list = []
+            for student in student_list:
+                bulk_list.append(models.StudyRecord(student=student,course_record=record))
+            models.StudyRecord.objects.bulk_create(bulk_list)
+
+    mutil_init.short_desc = "学生初始化"
+
+    show_actions = True
+    actions = [mutil_init,] # 因为这个是批量操作,咱们需要写点方法,里面是我们要实现的东西,所以函数
+
+    list_display = ['class_obj','day_num','teacher',display_score_list]
+
+v1.site.register(models.CourseRecord,CourseRecordConfig)
+
+# v1.site.register(models.SaleRank,)
