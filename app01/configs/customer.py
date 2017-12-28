@@ -7,6 +7,8 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.forms import ModelForm
 from app01 import models
 from stark.service import v1
+from utils import message
+
 
 class SingleModelForm(ModelForm):
     class Meta:
@@ -181,7 +183,9 @@ class CustomerConfig(v1.StarkConfig):
                 models.CustomerDistribution.objects.create(customer=new_customer,ctime=current_date,user_id=sale_id)
 
                 # 发送信息
-                
+                # message.send_message('17701335022@163.com','saofei','fk','fk you')
+
+
 
 
             else:

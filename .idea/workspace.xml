@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18a08c89-088c-4200-9461-09f328156a03" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be129e6a-54f1-48f4-be47-9bfb5232a1fc.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app01/models.py" afterPath="$PROJECT_DIR$/app01/models.py" />
-      <change beforePath="$PROJECT_DIR$/app01/stark.py" afterPath="$PROJECT_DIR$/app01/stark.py" />
+      <change beforePath="$PROJECT_DIR$/app01/configs/customer.py" afterPath="$PROJECT_DIR$/app01/configs/customer.py" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change beforePath="$PROJECT_DIR$/stark/service/v1.py" afterPath="$PROJECT_DIR$/stark/service/v1.py" />
-      <change beforePath="$PROJECT_DIR$/stark/templates/stark/add_view.html" afterPath="$PROJECT_DIR$/stark/templates/stark/add_view.html" />
-      <change beforePath="$PROJECT_DIR$/stark/templates/stark/change_view.html" afterPath="$PROJECT_DIR$/stark/templates/stark/change_view.html" />
-      <change beforePath="$PROJECT_DIR$/stark/templates/stark/changelist.html" afterPath="$PROJECT_DIR$/stark/templates/stark/changelist.html" />
-      <change beforePath="$PROJECT_DIR$/stark/templates/stark/form.html" afterPath="$PROJECT_DIR$/stark/templates/stark/form.html" />
-      <change beforePath="$PROJECT_DIR$/stark/tests.py" afterPath="$PROJECT_DIR$/stark/tests.py" />
-      <change beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
+      <change beforePath="$PROJECT_DIR$/oomph_2/settings.py" afterPath="$PROJECT_DIR$/oomph_2/settings.py" />
+      <change beforePath="$PROJECT_DIR$/utils/message/factory.py" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,27 +52,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="customer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="customer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app01/configs/customer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="183" column="16" lean-forward="false" selection-start-line="183" selection-start-column="16" selection-end-line="183" selection-end-column="16" />
+            <state relative-caret-position="399">
+              <caret line="186" column="0" lean-forward="true" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <element signature="e#598#675#0" expanded="false" />
-                <element signature="e#742#822#0" expanded="false" />
-                <element signature="e#886#965#0" expanded="false" />
-                <element signature="e#1029#1446#0" expanded="false" />
-                <element signature="e#1510#1748#0" expanded="false" />
-                <element signature="e#1510#1609#1" expanded="false" />
-                <element signature="e#1804#2045#0" expanded="false" />
-                <element signature="e#1804#1897#1" expanded="false" />
-                <element signature="e#2269#2885#0" expanded="false" />
-                <element signature="e#2269#2400#1" expanded="false" />
-                <element signature="e#2409#2470#0" expanded="false" />
-                <element signature="e#2688#2737#0" expanded="false" />
-                <element signature="e#3615#3670#1" expanded="false" />
+                <element signature="e#625#702#0" expanded="false" />
+                <element signature="e#769#849#0" expanded="false" />
+                <element signature="e#913#992#0" expanded="false" />
+                <element signature="e#1056#1473#0" expanded="false" />
+                <element signature="e#1537#1775#0" expanded="false" />
+                <element signature="e#1537#1636#1" expanded="false" />
+                <element signature="e#1831#2072#0" expanded="false" />
+                <element signature="e#1831#1924#1" expanded="false" />
+                <element signature="e#2296#2912#0" expanded="false" />
+                <element signature="e#2296#2427#1" expanded="false" />
+                <element signature="e#2436#2497#0" expanded="false" />
+                <element signature="e#2715#2764#0" expanded="false" />
+                <element signature="e#3642#3697#1" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oomph_2/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oomph_2/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="129" column="32" lean-forward="true" selection-start-line="129" selection-start-column="4" selection-end-line="129" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/app01/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-547">
-              <caret line="170" column="0" lean-forward="true" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
+              <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
               <folding>
                 <element signature="e#124#367#0" expanded="false" />
                 <element signature="e#124#177#1" expanded="false" />
@@ -131,12 +142,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cccccccccccccc.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cccccccccccccc.py">
+      <file leaf-file-name="email.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utils/message/email.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-89">
-              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state relative-caret-position="-267">
+              <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+              <folding>
+                <element signature="e#45#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/message/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/message/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#16#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -174,7 +209,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/oomph_2/settings.py" />
         <option value="$PROJECT_DIR$/oomph_2/urls.py" />
         <option value="$PROJECT_DIR$/stark/templatetags/change_form.py" />
         <option value="$PROJECT_DIR$/stark/tests.py" />
@@ -193,7 +227,11 @@
         <option value="$PROJECT_DIR$/templates/user_view.html" />
         <option value="$PROJECT_DIR$/app01/models.py" />
         <option value="$PROJECT_DIR$/cccccccccccccc.py" />
+        <option value="$PROJECT_DIR$/oomph_2/settings.py" />
+        <option value="$PROJECT_DIR$/utils/message/__init__.py" />
+        <option value="$PROJECT_DIR$/utils/message/base.py" />
         <option value="$PROJECT_DIR$/app01/configs/customer.py" />
+        <option value="$PROJECT_DIR$/utils/message/email.py" />
       </list>
     </option>
   </component>
@@ -242,17 +280,13 @@
             <path>
               <item name="oomph_2" type="b2602c69:ProjectViewProjectNode" />
               <item name="oomph_2" type="462c0819:PsiDirectoryNode" />
-              <item name="stark" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oomph_2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oomph_2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oomph_2" type="b2602c69:ProjectViewProjectNode" />
               <item name="oomph_2" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="message" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oomph_2" type="b2602c69:ProjectViewProjectNode" />
@@ -273,6 +307,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -449,110 +484,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app01/stark.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#50#0" expanded="false" />
-            <element signature="e#280#337#0" expanded="false" />
-            <element signature="e#435#808#0" expanded="false" />
-            <element signature="e#1037#1088#0" expanded="false" />
-            <element signature="e#1179#2094#0" expanded="false" />
-            <element signature="e#2246#2909#0" expanded="false" />
-            <element signature="e#2246#2268#1" expanded="false" />
-            <element signature="e#3082#4100#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stark/service/v1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1311">
-          <caret line="64" column="26" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <element signature="e#258#319#1" expanded="false" />
-            <element signature="e#475#754#1" expanded="false" />
-            <element signature="e#2700#2788#0" expanded="false" />
-            <element signature="e#2851#2876#0" expanded="false" />
-            <element signature="e#5496#5566#1" expanded="false" />
-            <element signature="e#5772#5804#0" expanded="false" />
-            <element signature="e#5839#5885#1" expanded="false" />
-            <element signature="e#6358#6400#1" expanded="false" />
-            <element signature="e#6409#6423#0" expanded="false" />
-            <element signature="e#6692#6732#0" expanded="false" />
-            <element signature="e#7042#7049#0" expanded="false" />
-            <element signature="e#7400#7429#0" expanded="false" />
-            <element signature="e#7893#7932#0" expanded="false" />
-            <element signature="e#8149#8197#0" expanded="false" />
-            <element signature="e#8393#8427#0" expanded="false" />
-            <element signature="e#8695#8970#0" expanded="false" />
-            <element signature="e#9004#9185#1" expanded="false" />
-            <element signature="e#9264#9387#0" expanded="false" />
-            <element signature="e#9441#9935#0" expanded="false" />
-            <element signature="e#9592#9828#0" expanded="false" />
-            <element signature="e#9991#10108#0" expanded="false" />
-            <element signature="e#10480#10551#0" expanded="false" />
-            <element signature="e#10637#10661#0" expanded="false" />
-            <element signature="e#10761#11239#0" expanded="false" />
-            <element signature="e#10880#10913#0" expanded="false" />
-            <element signature="e#11329#11357#0" expanded="false" />
-            <element signature="e#11423#11534#0" expanded="false" />
-            <element signature="e#12011#12035#0" expanded="false" />
-            <element signature="e#12263#12369#0" expanded="false" />
-            <element signature="e#12460#12488#0" expanded="false" />
-            <element signature="e#12677#12838#0" expanded="false" />
-            <element signature="e#13762#13784#0" expanded="false" />
-            <element signature="e#13827#13997#0" expanded="false" />
-            <element signature="e#14034#14194#0" expanded="false" />
-            <element signature="e#14230#14384#0" expanded="false" />
-            <element signature="e#14427#14596#0" expanded="false" />
-            <element signature="e#14705#14929#1" expanded="false" />
-            <element signature="e#16525#16535#0" expanded="false" />
-            <element signature="e#20075#21198#0" expanded="false" />
-            <element signature="e#20103#20122#0" expanded="false" />
-            <element signature="e#20192#20338#0" expanded="false" />
-            <element signature="e#20372#21117#0" expanded="false" />
-            <element signature="e#20470#21088#0" expanded="false" />
-            <element signature="e#20498#20842#1" expanded="false" />
-            <element signature="e#21161#21198#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oomph_2/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oomph_2/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-          <folding>
-            <element signature="e#697#729#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stark/static/stark/css/stark-form.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/pager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -566,24 +497,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oomph_2/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="40" column="29" lean-forward="true" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oomph_2/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-          <folding>
-            <element signature="e#697#729#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -725,14 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/message/factory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -917,8 +822,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cccccccccccccc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-89">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="720">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/message/factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/message/msg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/message/dingding.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -926,7 +855,7 @@
     <entry file="file://$PROJECT_DIR$/app01/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-547">
-          <caret line="170" column="0" lean-forward="true" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
+          <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
           <folding>
             <element signature="e#124#367#0" expanded="false" />
             <element signature="e#124#177#1" expanded="false" />
@@ -966,25 +895,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils/message/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/message/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/message/wx.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oomph_2/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="129" column="32" lean-forward="true" selection-start-line="129" selection-start-column="4" selection-end-line="129" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oomph_2/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app01/configs/customer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="183" column="16" lean-forward="false" selection-start-line="183" selection-start-column="16" selection-end-line="183" selection-end-column="16" />
+        <state relative-caret-position="399">
+          <caret line="186" column="0" lean-forward="true" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#598#675#0" expanded="false" />
-            <element signature="e#742#822#0" expanded="false" />
-            <element signature="e#886#965#0" expanded="false" />
-            <element signature="e#1029#1446#0" expanded="false" />
-            <element signature="e#1510#1748#0" expanded="false" />
-            <element signature="e#1510#1609#1" expanded="false" />
-            <element signature="e#1804#2045#0" expanded="false" />
-            <element signature="e#1804#1897#1" expanded="false" />
-            <element signature="e#2269#2885#0" expanded="false" />
-            <element signature="e#2269#2400#1" expanded="false" />
-            <element signature="e#2409#2470#0" expanded="false" />
-            <element signature="e#2688#2737#0" expanded="false" />
-            <element signature="e#3615#3670#1" expanded="false" />
+            <element signature="e#625#702#0" expanded="false" />
+            <element signature="e#769#849#0" expanded="false" />
+            <element signature="e#913#992#0" expanded="false" />
+            <element signature="e#1056#1473#0" expanded="false" />
+            <element signature="e#1537#1775#0" expanded="false" />
+            <element signature="e#1537#1636#1" expanded="false" />
+            <element signature="e#1831#2072#0" expanded="false" />
+            <element signature="e#1831#1924#1" expanded="false" />
+            <element signature="e#2296#2912#0" expanded="false" />
+            <element signature="e#2296#2427#1" expanded="false" />
+            <element signature="e#2436#2497#0" expanded="false" />
+            <element signature="e#2715#2764#0" expanded="false" />
+            <element signature="e#3642#3697#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/message/email.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-267">
+          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding>
+            <element signature="e#45#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
