@@ -8,6 +8,7 @@ from django.forms import ModelForm
 from app01 import models
 from stark.service import v1
 from utils import message
+from django.db import transaction
 
 
 class SingleModelForm(ModelForm):
@@ -172,22 +173,27 @@ class CustomerConfig(v1.StarkConfig):
                 sale_id = AutoSale.get_sale_id()
                 if not sale_id:
                     return HttpResponse('暂无课程顾问,请添加后再分配')
-                # 客户表保存
-                form.instance.consultant_id = sale_id
-                form.instance.recv_date = current_date
-                form.instance.last_consult_date = current_date
+                try:
+                    with transaction.atomic():
+                        # 客户表保存
+                        form.instance.consultant_id = sale_id
+                        form.instance.recv_date = current_date
+                        form.instance.last_consult_date = current_date
 
-                new_customer = form.save()  # 这就算创建完成了
+                        new_customer = form.save()  # 这就算创建完成了
 
-                # 将关系添加到客户分配表
-                models.CustomerDistribution.objects.create(customer=new_customer,ctime=current_date,user_id=sale_id)
+                        # 将关系添加到客户分配表
+                        models.CustomerDistribution.objects.create(customer=new_customer,ctime=current_date,user_id=sale_id)
 
-                # 发送信息
-                # message.send_message('17701335022@163.com','saofei','fk','fk you')
+                        # 发送邮件信息
+                        # message.send_message('17701335022@163.com','saofei','fk','fk you')
+                except Exception as e:
+                    # 创建客户和分配销售异常
+                    AutoSale.rollback(sale_id)
+                    return HttpResponse('录入异常')
 
-
-
-
+                return  HttpResponse('录入成功')
+                
             else:
                 return render(request,'single_view.html',{'form':form})
 
