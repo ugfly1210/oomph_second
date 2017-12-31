@@ -1,11 +1,13 @@
 import json,datetime
 from django.conf.urls import url
 from django.db.models import Q
+from django.http import StreamingHttpResponse
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.shortcuts import render,HttpResponse,redirect
 from django.forms import ModelForm
 from app01 import models
+from cccccccccccccc import AutoSale
 from stark.service import v1
 from utils import message
 from django.db import transaction
@@ -15,7 +17,6 @@ class SingleModelForm(ModelForm):
     class Meta:
         model = models.Customer
         exclude = ['consultant','status','recv_date','last_consult_date']
-
 
 
 class CustomerConfig(v1.StarkConfig):
@@ -97,6 +98,8 @@ class CustomerConfig(v1.StarkConfig):
             url(r'^user/$', self.wrap(self.user_view), name="%s_%s_user" %app_model_name),
             url(r'^(\d+)/competition/$', self.wrap(self.competition_view),name = "%s_%s_competition" % app_model_name),
             url(r'^single/$', self.wrap(self.single_view), name="%s_%s_single" % app_model_name),
+            url(r'^multi/$', self.wrap(self.multi_view), name="%s_%s_multi" % app_model_name),
+            # url(r'^loadfiles/$', self.wrap(self.get_loadfiles_view), name="%s_%s_loadfiles" % app_model_name),
         ]
         return patterns
 
@@ -161,7 +164,6 @@ class CustomerConfig(v1.StarkConfig):
 
     def single_view(self,request):
         """单条录入客户信息"""
-        from cccccccccccccc import AutoSale
         if request.method == 'GET':
             form = SingleModelForm()
             return render(request,'single_view.html',{'form':form})
@@ -179,21 +181,95 @@ class CustomerConfig(v1.StarkConfig):
                         form.instance.consultant_id = sale_id
                         form.instance.recv_date = current_date
                         form.instance.last_consult_date = current_date
-
-                        new_customer = form.save()  # 这就算创建完成了
-
+                        new_customer = form.save()  #  将数据添加到客户表。这就算创建完成了
                         # 将关系添加到客户分配表
                         models.CustomerDistribution.objects.create(customer=new_customer,ctime=current_date,user_id=sale_id)
-
                         # 发送邮件信息
                         # message.send_message('17701335022@163.com','saofei','fk','fk you')
                 except Exception as e:
                     # 创建客户和分配销售异常
                     AutoSale.rollback(sale_id)
                     return HttpResponse('录入异常')
-
                 return  HttpResponse('录入成功')
-                
             else:
                 return render(request,'single_view.html',{'form':form})
+
+    def multi_view(self,request):
+        """批量导入"""
+        if request.method == 'GET':
+            return render(request,'multi_view.html')
+        else:
+            from django.core.files.uploadedfile import InMemoryUploadedFile
+            file_obj = request.FILES.get('exfile')
+            # 老方法： 对应218
+            # print(file_obj,type(file_obj))
+            # with open('submit.xlsx','wb') as f :
+            #     for chunk in file_obj:
+            #         f.write(chunk)
+            import xlrd
+            # 不再创建xlsx文件
+            workbook = xlrd.open_workbook(file_contents=file_obj.read())
+            # 老方法： 先写再读
+            # workbook = xlrd.open_workbook('submit.xlsx')
+            sheet = workbook.sheet_by_index(0) # 这个当前sheet索引为0的 表单页
+            # print(sheet.nrows) # 当前共有多少行
+            maps = {
+                0 : 'name',
+                1 : 'qq',
+            }
+            row_dict = {}
+            for index in range(1,sheet.nrows): # 第一行是标题，从索引为1的开始拿数据
+                row = sheet.row(index)
+                # [text: 'zz', number: 1123.0]
+                # [text: 'aa', number: 23.0]
+                # 拿到的是列表，可是我们要转化成字典
+                # {text: 'zz', number: 1123.0}
+                for i in range(len(maps)):
+                    key = maps[i]
+                    cell = row[i]
+                    row_dict[key] = cell.value
+                print(row_dict)
+
+                # 获取客户id，录入客户表，录入分配表
+                current_date = datetime.datetime.now().date()
+                sale_id = AutoSale.get_sale_id()
+                print('236',sale_id)
+                if not sale_id:
+                    return HttpResponse('暂无课程顾问，请添加后再执行操作！')
+                try:
+                    with transaction.atomic():
+                        # 客户表保存
+                        new_customer = models.Customer.objects.create(**row_dict,consultant_id=sale_id,recv_date=current_date,last_consult_date=current_date)
+                        print(new_customer)
+                        # 将关系添加到客户分配表
+                        models.CustomerDistribution.objects.create(customer=new_customer,ctime=current_date,user_id=sale_id)
+                        # 发送邮件信息
+                        # message.send_message('17701335022@163.com','saofei','fk','fk you')
+                        print(new_customer)
+                except Exception as e:
+                    # 创建客户和分配销售异常
+                    AutoSale.rollback(sale_id)
+                    return HttpResponse('录入异常')
+                return  HttpResponse('录入成功')
+            else:
+                return render(request,'multi_view.html')
+
+    # # 为用户提供模版
+    # def download_file(request):
+    #     # do something
+    #
+    #     the_file_name='11.png'             #显示在弹出对话框中的默认的下载文件名
+    #     filename='media/uploads/11.png'    #要下载的文件路径
+    #     response=StreamingHttpResponse(readFile(filename))
+    #     response['Content-Type']='application/octet-stream'
+    #     response['Content-Disposition']='attachment;filename="{0}"'.format(the_file_name)
+    #     return response
+    # def readFile(filename,chunk_size=512):
+    #     with open(filename,'rb') as f:
+    #         while True:
+    #             c=f.read(chunk_size)
+    #             if c:
+    #                 yield c
+    #             else:
+    #                 break
 

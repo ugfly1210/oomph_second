@@ -132,3 +132,8 @@ MESSAGE_CLASSES = [
     'utils.message.wx.WeChat',
     'utils.message.dingding.DingDing',
 ]
+
+# ################## 自动分配销售 ####################
+SALE_ID_LIST = 'sale_id_list'
+SALE_ID_LIST_ORIGIN = 'sale_id_list_origin'
+SALE_ID_RESET = 'sale_id_reset'

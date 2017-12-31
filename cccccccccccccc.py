@@ -1,5 +1,6 @@
 import redis
 from app01 import models
+from oomph_2.settings import SALE_ID_LIST, SALE_ID_LIST_ORIGIN, SALE_ID_RESET
 
 POOL = redis.ConnectionPool(host='192.168.20.150',port=6379)
 # host是服务端的，这个port是redis固定的，只要是连接redis的这个port就固定是6379，密码是服务端设置的。
@@ -24,10 +25,10 @@ class AutoSale(object):
             count += 1
             if not flag:
                 break
-        print('sale_id_list===',sale_id_list)
+        print('SALE_ID_LIST===',sale_id_list)
         if sale_id_list:
-            CONN.rpush('sale_id_list',*sale_id_list)        # 用来操作的数据
-            CONN.rpush('sale_id_list_origin',*sale_id_list) # 保留一份源数据
+            CONN.rpush(SALE_ID_LIST,*sale_id_list)        # 用来操作的数据
+            CONN.rpush(SALE_ID_LIST_ORIGIN,*sale_id_list) # 保留一份源数据
             return True
         return False
 
@@ -35,29 +36,30 @@ class AutoSale(object):
     @classmethod
     def get_sale_id(cls):
         # 查看原来数据是否存在
-        sale_id_origin_count = CONN.llen('sale_id_list_origin')
+        
+        sale_id_origin_count = CONN.llen(SALE_ID_LIST_ORIGIN)
         if not sale_id_origin_count:
             # 取数据库中获取数据，并且赋值list_origin,pop数据
             status = cls.fetch_users()
             if not status:
                 return None
-            user_id = CONN.lpop('sale_id_list')
+            user_id = CONN.lpop(SALE_ID_LIST)
             if user_id:
                 return user_id
 
-            reset = CONN.get('sale_id_reset')
+            reset = CONN.get(SALE_ID_RESET)
             if reset:
-                CONN.delete('sale_id_list_origin')
+                CONN.delete(SALE_ID_LIST_ORIGIN)
                 status = cls.fetch_users()
                 if not status:
                     return None
-                CONN.delete('sale_id_reset')
-                return CONN.lpop('sale_id_list')
+                CONN.delete(SALE_ID_RESET)
+                return CONN.lpop(SALE_ID_LIST)
             else:
-                ct = CONN.llen('sale_id_list_origin')
+                ct = CONN.llen(SALE_ID_LIST_ORIGIN)
                 for i in range(ct):
-                    v = CONN.lindex('sale_id_list_origin',i)
-                    CONN.rpush('sale_id_list',v)
+                    v = CONN.lindex(SALE_ID_LIST_ORIGIN,i)
+                    CONN.rpush(SALE_ID_LIST,v)
                 return CONN.lpop('sale_list_id')
 
         # if cls.rollback_list:
@@ -87,9 +89,11 @@ class AutoSale(object):
 
     @classmethod
     def reset(cls):
-        CONN.set('sale_id_reset',1)
+        CONN.set(SALE_ID_RESET,1)
 
     @classmethod
     def rollback(cls,nid):
         # cls.rollback_list.insert(0,nid)
-        CONN.lpush('sale_id_list',nid)   # callback的id，往前面放
+        CONN.lpush(SALE_ID_LIST,nid)   # callback的id，往前面放
+
+
