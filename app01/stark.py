@@ -106,17 +106,6 @@ class ConsultRecordConfig(v1.StarkConfig):
 v1.site.register(models.ConsultRecord,ConsultRecordConfig)
 
 
-
-"""
-1. 初始化学生学习记录
-
-2. 考勤管理
-
-3. 录成绩
-
-4. 查看到学生所有成绩【highchart】
-"""
-
 class CourseRecordConfig(v1.StarkConfig):
     """上课记录表"""
 
@@ -124,7 +113,14 @@ class CourseRecordConfig(v1.StarkConfig):
         if is_header:
             return '成绩录入'
 
+    def kaoqin(self,obj=None,is_header=False):
+        if is_header:
+            return '考勤'
+        # 这里点击考勤后，会跳转到学习记录表展示页
+        return mark_safe("<a href='/stark/app01/studyrecord/?course_record=%s'>考勤管理</a>" %obj.pk)
 
+    list_display = ['class_obj', 'day_num', 'teacher', kaoqin, display_score_list]
+                                                # 点击考勤后，应该是产生学习记录的数据
     def mutil_init(self,request):
         """自定义批量初始化方法"""
         # 上课记录id列表
@@ -159,14 +155,59 @@ class CourseRecordConfig(v1.StarkConfig):
     show_actions = True
     mutil_init.short_desc = "学生初始化"
     actions = [mutil_init,] # 因为这个是批量操作,咱们需要写点方法,里面是我们要实现的东西,所以函数
-
-    list_display = ['class_obj','day_num','teacher',display_score_list]
-
 v1.site.register(models.CourseRecord,CourseRecordConfig)
 
-# v1.site.register(models.SaleRank,)
+
+# 学生的学习记录
+class StudyRecordConfig(v1.StarkConfig):
+    """
+    1. 初始化学生学习记录
+
+    2. 考勤管理
+
+    3. 录成绩
+
+    4. 查看到学生所有成绩【highchart】
+    """
+    # 出勤信息(choices选项)
+    def display_record(self,obj=None,is_header=False):
+        if is_header:
+            return '出勤'
+        return obj.get_record_display()
+    list_display = ['student','course_record',display_record]
+
+    comb_filter = [
+        v1.FilterOption('course_record')
+    ]
+
+    def action_checked(self,request):
+        pass
+    action_checked.short_desc = '签到'
+
+    def action_vacate(self, request):
+        pass
+    action_vacate.short_desc = "请假"
+
+    def action_late(self, request):
+        pass
+    action_late.short_desc = "迟到"
+
+    def action_noshow(self, request):
+        pk_list = request.POST.getlist('pk')
+        models.StudyRecord.objects.filter(id__in=pk_list).update(record='noshow')
+    action_noshow.short_desc = "缺勤"
+
+    def action_leave_early(self, request):
+        pass
+    action_leave_early.short_desc = "早退"
+
+    actions = [action_checked, action_vacate, action_late, action_noshow, action_leave_early]
+    show_actions = True
+
+    show_add_btn = False # 在上课记录里面，不允许创建
+v1.site.register(models.StudyRecord,StudyRecordConfig)
+
 
 class StudentConfig(v1.StarkConfig):
     list_display = ['username','emergency_contract']
-
 v1.site.register(models.Student,StudentConfig)
