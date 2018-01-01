@@ -333,11 +333,16 @@ class StarkConfig(object):
     def get_show_actions(self):
         return self.show_actions
 
+    def default_action(self,request):
+        pass
+    default_action.short_desc = '请选择action'
+
     actions = []
     def get_actions(self):
         result = []
         if self.actions:
             result.extend(self.actions)
+            result.insert(0,StarkConfig.default_action)
         return result
 
     # 6. 组合搜索

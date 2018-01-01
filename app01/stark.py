@@ -131,7 +131,19 @@ class CourseRecordConfig(v1.StarkConfig):
         pk_list = request.POST.getlist('pk')
         # 上课记录对象列表
         record_list = models.CourseRecord.objects.filter(id__in=pk_list)
+        # print(record_list)
+        # # 这种是，遍历每一个学生，查看是否存在记录。
+        # for record in record_list:
+        #     student_list = models.Student.objects.filter(class_list=record.class_obj)
+        #     bulk_list = []
+        #     for student in student_list:
+        #         exists = models.StudyRecord.objects.filter(student=student,course_record=record).exists()
+        #         if exists:
+        #             continue
+        #         bulk_list.append(models.StudyRecord(student=student,course_record=record))
+        #     models.StudyRecord.objects.bulk_create(bulk_list)
 
+        # 下面这种是，只要有当天的学习记录，后面不管还有没有学生来，都不能添加
         for record in record_list:
             if models.StudyRecord.objects.filter(course_record=record).exists():
                 continue
@@ -141,10 +153,11 @@ class CourseRecordConfig(v1.StarkConfig):
             for student in student_list:
                 bulk_list.append(models.StudyRecord(student=student,course_record=record))
             models.StudyRecord.objects.bulk_create(bulk_list)
-
-    mutil_init.short_desc = "学生初始化"
+        # return redirect('/stark/app01/courserecord/')
+        return HttpResponse('初始化成功！')
 
     show_actions = True
+    mutil_init.short_desc = "学生初始化"
     actions = [mutil_init,] # 因为这个是批量操作,咱们需要写点方法,里面是我们要实现的东西,所以函数
 
     list_display = ['class_obj','day_num','teacher',display_score_list]
@@ -152,3 +165,8 @@ class CourseRecordConfig(v1.StarkConfig):
 v1.site.register(models.CourseRecord,CourseRecordConfig)
 
 # v1.site.register(models.SaleRank,)
+
+class StudentConfig(v1.StarkConfig):
+    list_display = ['username','emergency_contract']
+
+v1.site.register(models.Student,StudentConfig)
