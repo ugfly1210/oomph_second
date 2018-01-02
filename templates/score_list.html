@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>成绩录入</title>
+    <link rel="stylesheet" href="{% static 'stark/bootstrap/css/bootstrap.css' %}">
+</head>
+<body>
+
+<form method="post">
+    {% csrf_token %}
+    <table class="table-bordered">
+        {% for row in data %}
+            <tr>
+            <td>{{ row.obj.course_record }}</td>
+            <td>{{ row.obj.student }}</td>
+            <td>{{ row.obj.get_record_display }}</td>
+            {% for field in row.form %}
+                <td>{{ field }}</td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+
+    </table>
+    <input type="submit" value="保存">
+</form>
+
+</body>
+</html>

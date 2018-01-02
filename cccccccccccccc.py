@@ -61,7 +61,6 @@ class AutoSale(object):
                     v = CONN.lindex(SALE_ID_LIST_ORIGIN,i)
                     CONN.rpush(SALE_ID_LIST,v)
                 return CONN.lpop('sale_list_id')
-
         # if cls.rollback_list:
         #     """
         #     可能存在已经取到了销售,也分配了,可是在写进数据库的过程中出现了问题,
@@ -86,7 +85,6 @@ class AutoSale(object):
         #     cls.iter_users = iter(cls.users)
         #     user_id = cls.get_sale_id()
         # return user_id
-
     @classmethod
     def reset(cls):
         CONN.set(SALE_ID_RESET,1)

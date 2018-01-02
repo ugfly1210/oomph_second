@@ -1,9 +1,10 @@
-from django.shortcuts import redirect,HttpResponse
+from django.shortcuts import redirect,HttpResponse,render
 from stark.service import v1
 from app01 import models
 from django.conf.urls import url
 from django.utils.safestring import mark_safe
 from app01.configs.customer import CustomerConfig
+from app01.configs.student import StudentConfig
 
 
 class DepartmentConfig(v1.StarkConfig):
@@ -108,10 +109,64 @@ v1.site.register(models.ConsultRecord,ConsultRecordConfig)
 
 class CourseRecordConfig(v1.StarkConfig):
     """上课记录表"""
+    def extra_url(self):
+        app_model_name = (self.model_class._meta.app_label, self.model_class._meta.model_name,)
+        url_list = [
+            url(r'^(\d+)/score_list/$', self.wrap(self.score_list), name="%s_%s_score_list" % app_model_name),
+        ]
+        return url_list
+
+    def score_list(self,request,record_id):
+        """
+        录入成绩页面
+        :param request:
+        :param record_id: 老师上课记录ID
+        :return:
+        """
+        if request.method == 'GET':
+            from django.forms import Form
+            from django.forms import fields
+            from django.forms import widgets
+
+            # class TestForm(Form):
+            #     score = fields.ChoiceField(choices=models.StudyRecord.record_choices)
+            #     homeword_note = fields.CharField(widget=widgets.Textarea())
+
+            # 因为前端要拿到id和对象，所以使用type来创建，来自定义字段
+            study_record_list = models.StudyRecord.objects.filter(course_record_id=record_id)
+            data = []
+            for obj in study_record_list:
+                TestForm = type('TempForm',(Form,),{
+                    'score_%s'%obj.pk : fields.ChoiceField(choices=models.StudyRecord.record_choices),
+                    'homework_note_%s' : fields.CharField(widget=widgets.Textarea())
+                })
+                data.append({'obj':obj,'form':TestForm(initial={'score_%s' %obj.pk:obj.score,'homework_note_%s' %obj.pk:obj.homework_note})})
+            return render(request,'score_list.html',{'data':data})
+        else:
+            data_dict = {}
+            for key, value in request.POST.items():
+                if key == "csrfmiddlewaretoken":
+                    continue
+                name, nid = key.rsplit('_', 1)
+                if nid in data_dict:
+                    data_dict[nid][name] = value
+                else:
+                    data_dict[nid] = {name: value}
+
+            for nid, update_dict in data_dict.items():
+                models.StudyRecord.objects.filter(id=nid).update(**update_dict)
+
+            return redirect(request.path_info)
+
+
 
     def display_score_list(self,obj=None,is_header=False):
         if is_header:
             return '成绩录入'
+        from django.urls import reverse
+        # 点击后跳转到成绩录入页面
+        rurl = reverse('stark:app01_courserecord_score_list',args=(obj.pk))
+        return mark_safe('<a href="%s">成绩录入</a>'%rurl)
 
     def kaoqin(self,obj=None,is_header=False):
         if is_header:
@@ -208,6 +263,4 @@ class StudyRecordConfig(v1.StarkConfig):
 v1.site.register(models.StudyRecord,StudyRecordConfig)
 
 
-class StudentConfig(v1.StarkConfig):
-    list_display = ['username','emergency_contract']
 v1.site.register(models.Student,StudentConfig)
