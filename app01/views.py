@@ -1,35 +1,30 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,HttpResponse
 from app01 import models
 # Create your views here.
 
-# def login(request):
-#     if request.method == 'GET':
-#         return render(request,'login.html')
 
+from rbac import models
+from rbac.service.init_permission import init_permission
+def login(request):
+    if request.method == 'GET':
+        return render(request,'login.html')
+    else:
+        user = request.POST.get('username')
+        pwd = request.POST.get('password')
+        user = models.User.objects.filter(username=user, password=pwd).first()
+        # print(user.userinfo)
+        # print(user.userinfo.name)
+        # print(user.userinfo.id)
+        # print(user.id)
+        if user:
+            # 表示已登录
+            request.session['user_info'] = {'user_id': user.id, 'uid': user.userinfo.id, 'name': user.userinfo.name}
+            # 权限写入session
+            init_permission(user, request)
+            # 跳转
+            return redirect('/index/')
 
-# def (request):
-#     a = models.UserInfo._meta.get_field('name')
-#     # app01.UserInfo.name
-#     b = models.UserInfo._meta.fields
-#     # (<django.db.models.fields.AutoField: id>,
-#     # <django.db.models.fields.CharField: name>,
-#     # <django.db.models.fields.CharField: username>,
-#     # <django.db.models.fields.CharField: password>,
-#     # <django.db.models.fields.EmailField: email>,
-#     # <django.db.models.fields.related.ForeignKey: depart>)
-#     c = models.UserInfo._meta._get_fields()
-#     # (< ManyToOneRel: app01.classlist >,
-#     # < ManyToManyRel: app01.classlist >,
-#     # < ManyToOneRel: app01.customer >,
-#     # < ManyToOneRel: app01.customerdistribution >,
-#     # < ManyToOneRel: app01.salerank >,
-#     # < ManyToOneRel: app01.consultrecord >,
-#     # < ManyToOneRel: app01.paymentrecord >,
-#     # < ManyToOneRel: app01.courserecord >,
-#     # < django.db.models.fields.AutoField: id >,
-#     # < django.db.models.fields.CharField: name >,
-#     # < django.db.models.fields.CharField: username >,
-#     # < django.db.models.fields.CharField: password >,
-#     # < django.db.models.fields.EmailField: email >,
-#     # < django.db.models.fields.related.ForeignKey: depart >)
-#     d = models.UserInfo._meta.many_to_many # ()
+        return render(request, 'login.html')
+
+def index(request):
+    return HttpResponse('welcome come back')

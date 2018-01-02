@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app01.apps.App01Config',
     'stark.apps.StarkConfig',
+    'rbac.apps.RbacConfig',
+    'app01.apps.App01Config',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rbac.middlewares.rbac.LoginMiddleware',
+    'rbac.middlewares.rbac.RbacMiddleware',   # 如果都没有登录成功，都不让它来判断权限
 ]
 
 ROOT_URLCONF = 'oomph_2.urls'
@@ -137,3 +140,13 @@ MESSAGE_CLASSES = [
 SALE_ID_LIST = 'sale_id_list'
 SALE_ID_LIST_ORIGIN = 'sale_id_list_origin'
 SALE_ID_RESET = 'sale_id_reset'
+
+
+# ################## Rbac配置 ####################
+PERMISSION_URL_DICT_KEY = "permission_url_dict"
+PERMISSION_MENU_KEY = "afsdfasdfadfsdfsdf"
+
+VALID_URL = [
+    "/login/",
+    "/index/"
+]

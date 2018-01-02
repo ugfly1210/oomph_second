@@ -522,6 +522,14 @@ class StarkConfig(object):
 
 
 class StarkSite(object):
+    """
+    相当于是一个容器，往里面放类，以及处理与另外的类之间的对应关系
+    该类主要是用来注册对应关系
+            {
+                models.UserInfo: StarkConfig(models.UserInfo,self),
+                models.Role: StarkConfig(models.Role,self)
+            }
+    """
     def __init__(self):
         self._registry = {}
 
