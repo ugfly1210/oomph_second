@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="{% static 'stark/bootstrap/css/bootstrap.css' %}">
 </head>
 <body>
-
+<h2>自定义成绩录入</h2>
 <form method="post">
     {% csrf_token %}
-    <table class="table-bordered">
+    <table class="table">
         {% for row in data %}
             <tr>
             <td>{{ row.obj.course_record }}</td>

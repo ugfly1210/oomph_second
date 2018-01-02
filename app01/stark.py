@@ -137,8 +137,8 @@ class CourseRecordConfig(v1.StarkConfig):
             data = []
             for obj in study_record_list:
                 TestForm = type('TempForm',(Form,),{
-                    'score_%s'%obj.pk : fields.ChoiceField(choices=models.StudyRecord.record_choices),
-                    'homework_note_%s' : fields.CharField(widget=widgets.Textarea())
+                    'score_%s'%obj.pk : fields.ChoiceField(choices=models.StudyRecord.score_choices),
+                    'homework_note_%s'%obj.pk : fields.CharField(widget=widgets.Textarea())
                 })
                 data.append({'obj':obj,'form':TestForm(initial={'score_%s' %obj.pk:obj.score,'homework_note_%s' %obj.pk:obj.homework_note})})
             return render(request,'score_list.html',{'data':data})
@@ -154,18 +154,18 @@ class CourseRecordConfig(v1.StarkConfig):
                     data_dict[nid] = {name: value}
 
             for nid, update_dict in data_dict.items():
+                print(data_dict.items())
                 models.StudyRecord.objects.filter(id=nid).update(**update_dict)
 
             return redirect(request.path_info)
-
-
 
     def display_score_list(self,obj=None,is_header=False):
         if is_header:
             return '成绩录入'
         from django.urls import reverse
         # 点击后跳转到成绩录入页面
-        rurl = reverse('stark:app01_courserecord_score_list',args=(obj.pk))
+        rurl = reverse('stark:app01_courserecord_score_list',args=(obj.pk,))
+        print('<a href="%s">成绩录入</a>'%rurl)
         return mark_safe('<a href="%s">成绩录入</a>'%rurl)
 
     def kaoqin(self,obj=None,is_header=False):
