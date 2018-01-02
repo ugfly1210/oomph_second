@@ -1,0 +1,6 @@
+{% extends 'stark/layout.html' %}
+
+{% block body %}
+    <h1>Welcome ComeBack HOME!!!</h1>
+    <h3>{{ request.session.user_info.name }}</h3>
+{% endblock %}

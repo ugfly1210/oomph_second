@@ -3,7 +3,7 @@ from django.template import Library
 from django.conf import settings
 register = Library()
 
-@register.inclusion_tag("xxxxx.html")
+@register.inclusion_tag("rbac/xxx.html")
 def menu_html(request):
     """
     去Session中获取菜单相关信息，匹配当前URL，生成菜单

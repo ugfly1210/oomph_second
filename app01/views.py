@@ -27,4 +27,4 @@ def login(request):
         return render(request, 'login.html')
 
 def index(request):
-    return HttpResponse('welcome come back')
+    return render(request,'index.html')
