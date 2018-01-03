@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'rbac.middlewares.rbac.LoginMiddleware',
-    'rbac.middlewares.rbac.RbacMiddleware',   # 如果都没有登录成功，都不让它来判断权限
+    # 'rbac.middlewares.rbac.RbacMiddleware',   # 如果都没有登录成功，都不让它来判断权限
 ]
 
 ROOT_URLCONF = 'oomph_2.urls'

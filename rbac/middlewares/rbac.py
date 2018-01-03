@@ -50,6 +50,7 @@ class RbacMiddleware(MiddlewareMixin):
                 return None
 
         permission_dict = request.session.get(settings.PERMISSION_URL_DICT_KEY)
+
         if not permission_dict:
             return redirect('/login/')
 

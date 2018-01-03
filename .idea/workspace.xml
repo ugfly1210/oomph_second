@@ -2,9 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18a08c89-088c-4200-9461-09f328156a03" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app01/views.py" afterPath="$PROJECT_DIR$/app01/views.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app01/configs/customer.py" afterPath="$PROJECT_DIR$/app01/configs/customer.py" />
+      <change beforePath="$PROJECT_DIR$/app01/configs/student.py" afterPath="$PROJECT_DIR$/app01/configs/student.py" />
+      <change beforePath="$PROJECT_DIR$/app01/stark.py" afterPath="$PROJECT_DIR$/app01/stark.py" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change beforePath="$PROJECT_DIR$/oomph_2/settings.py" afterPath="$PROJECT_DIR$/oomph_2/settings.py" />
+      <change beforePath="$PROJECT_DIR$/rbac/middlewares/rbac.py" afterPath="$PROJECT_DIR$/rbac/middlewares/rbac.py" />
+      <change beforePath="$PROJECT_DIR$/rbac/models.py" afterPath="$PROJECT_DIR$/rbac/models.py" />
+      <change beforePath="$PROJECT_DIR$/rbac/service/init_permission.py" afterPath="$PROJECT_DIR$/rbac/service/init_permission.py" />
+      <change beforePath="$PROJECT_DIR$/rbac/templates/rbac/xxx.html" afterPath="$PROJECT_DIR$/rbac/templates/rbac/xxx.html" />
       <change beforePath="$PROJECT_DIR$/rbac/templatetags/rbac.py" afterPath="$PROJECT_DIR$/rbac/templatetags/rbac.py" />
+      <change beforePath="$PROJECT_DIR$/stark/service/v1.py" afterPath="$PROJECT_DIR$/stark/service/v1.py" />
+      <change beforePath="$PROJECT_DIR$/stark/templates/stark/layout.html" afterPath="$PROJECT_DIR$/stark/templates/stark/layout.html" />
+      <change beforePath="$PROJECT_DIR$/templates/public_view.html" afterPath="$PROJECT_DIR$/templates/public_view.html" />
+      <change beforePath="$PROJECT_DIR$/templates/stark/layout.html" afterPath="$PROJECT_DIR$/templates/stark/layout.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,88 +62,57 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app01/models.py">
+      <file leaf-file-name="stark.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app01/stark.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="27" column="52" lean-forward="false" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-                <element signature="e#132#375#0" expanded="false" />
-                <element signature="e#132#185#1" expanded="false" />
-                <element signature="e#358#375#0" expanded="false" />
-                <element signature="e#993#1009#0" expanded="false" />
-                <element signature="e#1044#1263#0" expanded="false" />
-                <element signature="e#1044#1150#1" expanded="false" />
-                <element signature="e#1247#1263#0" expanded="false" />
-                <element signature="e#1298#1433#0" expanded="false" />
-                <element signature="e#1298#1318#1" expanded="false" />
-                <element signature="e#1416#1433#0" expanded="false" />
-                <element signature="e#1471#2375#0" expanded="false" />
-                <element signature="e#1471#1547#1" expanded="false" />
-                <element signature="e#2317#2375#0" expanded="false" />
-                <element signature="e#2412#5308#0" expanded="false" />
-                <element signature="e#2412#2431#1" expanded="false" />
-                <element signature="e#2749#2901#0" expanded="false" />
-                <element signature="e#3229#3385#0" expanded="false" />
-                <element signature="e#3521#3565#0" expanded="false" />
-                <element signature="e#3929#4273#0" expanded="false" />
-                <element signature="e#4667#4713#0" expanded="false" />
-                <element signature="e#5257#5308#0" expanded="false" />
-                <element signature="e#5357#5970#0" expanded="false" />
-                <element signature="e#5721#5794#0" expanded="false" />
-                <element signature="e#6007#6304#0" expanded="false" />
-                <element signature="e#6250#6304#0" expanded="false" />
-                <element signature="e#6346#6664#0" expanded="false" />
-                <element signature="e#6346#6368#1" expanded="false" />
-                <element signature="e#6706#7562#0" expanded="false" />
-                <element signature="e#6706#6726#1" expanded="false" />
-                <element signature="e#6907#7013#0" expanded="false" />
-                <element signature="e#7598#8690#0" expanded="false" />
-                <element signature="e#7598#7622#1" expanded="false" />
-                <element signature="e#8670#8690#0" expanded="false" />
-                <element signature="e#8731#9721#0" expanded="false" />
-                <element signature="e#8731#8752#1" expanded="false" />
-                <element signature="e#9665#9721#0" expanded="false" />
-                <element signature="e#9761#11240#0" expanded="false" />
-                <element signature="e#9923#10105#0" expanded="false" />
-                <element signature="e#10247#10628#0" expanded="false" />
-                <element signature="e#11183#11240#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app01/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#57#0" expanded="true" />
-                <element signature="e#472#494#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="44" lean-forward="false" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+            <state relative-caret-position="258">
+              <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/stark/layout.html">
+      <file leaf-file-name="rbac.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rbac/middlewares/rbac.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="30" column="121" lean-forward="false" selection-start-line="30" selection-start-column="121" selection-end-line="30" selection-end-column="121" />
+            <state relative-caret-position="1127">
+              <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="v1.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/stark/service/v1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3153">
+              <caret line="276" column="0" lean-forward="true" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#258#319#1" expanded="false" />
+                <element signature="e#475#754#1" expanded="false" />
+                <element signature="e#1247#4358#0" expanded="false" />
+                <element signature="e#2700#2788#0" expanded="false" />
+                <element signature="e#2851#2876#0" expanded="false" />
+                <element signature="e#5839#5885#1" expanded="false" />
+                <element signature="e#6358#6400#1" expanded="false" />
+                <element signature="e#6409#6423#0" expanded="false" />
+                <element signature="e#6692#6732#0" expanded="false" />
+                <element signature="e#7042#7049#0" expanded="false" />
+                <element signature="e#7400#7429#0" expanded="false" />
+                <element signature="e#7893#7932#0" expanded="false" />
+                <element signature="e#8149#8197#0" expanded="false" />
+                <element signature="e#8393#8427#0" expanded="false" />
+                <element signature="e#9264#9387#0" expanded="false" />
+                <element signature="e#9441#9935#0" expanded="false" />
+                <element signature="e#9592#9828#0" expanded="false" />
+                <element signature="e#9991#10108#0" expanded="false" />
+                <element signature="e#10913#10946#0" expanded="false" />
+                <element signature="e#12741#12811#0" expanded="false" />
+                <element signature="e#13106#13249#0" expanded="false" />
+                <element signature="e#13947#13969#0" expanded="false" />
+                <element signature="e#14890#15114#1" expanded="false" />
+                <element signature="e#16710#16720#0" expanded="false" />
+                <element signature="e#21571#21608#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -174,6 +155,11 @@
       <find>type</find>
       <find>app_model_name</find>
       <find>get_list</find>
+      <find>yield</find>
+      <find>_q</find>
+      <find>search_key</find>
+      <find>reverse</find>
+      <find>show_add_btn</find>
     </findStrings>
     <replaceStrings>
       <replace>SALE_ID_LIST</replace>
@@ -191,11 +177,9 @@
         <option value="$PROJECT_DIR$/utils/message/factory.html" />
         <option value="$PROJECT_DIR$/utils/message/factory.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/stark/templates/stark/layout.html" />
         <option value="$PROJECT_DIR$/stark/templates/stark/changelist.html" />
         <option value="$PROJECT_DIR$/stark/templates/stark/change_view.html" />
         <option value="$PROJECT_DIR$/stark/templates/stark/add_view.html" />
-        <option value="$PROJECT_DIR$/templates/public_view.html" />
         <option value="$PROJECT_DIR$/templates/user_view.html" />
         <option value="$PROJECT_DIR$/utils/message/__init__.py" />
         <option value="$PROJECT_DIR$/utils/message/email.py" />
@@ -204,26 +188,30 @@
         <option value="$PROJECT_DIR$/stark/templates/stark/multi_view.html" />
         <option value="$PROJECT_DIR$/templates/single_view.html" />
         <option value="$PROJECT_DIR$/templates/multi_view.html" />
-        <option value="$PROJECT_DIR$/app01/configs/customer.py" />
         <option value="$PROJECT_DIR$/cccccccccccccc.py" />
         <option value="$PROJECT_DIR$/static/highcharts.js" />
         <option value="$PROJECT_DIR$/templates/score_list.html" />
-        <option value="$PROJECT_DIR$/app01/configs/student.py" />
-        <option value="$PROJECT_DIR$/app01/stark.py" />
         <option value="$PROJECT_DIR$/templates/scores_view.html" />
-        <option value="$PROJECT_DIR$/stark/service/v1.py" />
         <option value="$PROJECT_DIR$/rbac/stark.py" />
-        <option value="$PROJECT_DIR$/rbac/models.py" />
         <option value="$PROJECT_DIR$/app01/models.py" />
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/oomph_2/urls.py" />
-        <option value="$PROJECT_DIR$/oomph_2/settings.py" />
-        <option value="$PROJECT_DIR$/rbac/middlewares/rbac.py" />
-        <option value="$PROJECT_DIR$/app01/views.py" />
-        <option value="$PROJECT_DIR$/rbac/templates/rbac/xxx.html" />
-        <option value="$PROJECT_DIR$/rbac/templatetags/rbac.py" />
-        <option value="$PROJECT_DIR$/templates/stark/layout.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/rbac/models.py" />
+        <option value="$PROJECT_DIR$/rbac/middlewares/rbac.py" />
+        <option value="$PROJECT_DIR$/rbac/service/init_permission.py" />
+        <option value="$PROJECT_DIR$/app01/views.py" />
+        <option value="$PROJECT_DIR$/oomph_2/settings.py" />
+        <option value="$PROJECT_DIR$/stark/templates/stark/layout.html" />
+        <option value="$PROJECT_DIR$/templates/test.html" />
+        <option value="$PROJECT_DIR$/rbac/templates/rbac/xxx.html" />
+        <option value="$PROJECT_DIR$/templates/stark/layout.html" />
+        <option value="$PROJECT_DIR$/rbac/templatetags/rbac.py" />
+        <option value="$PROJECT_DIR$/templates/public_view.html" />
+        <option value="$PROJECT_DIR$/stark/service/v1.py" />
+        <option value="$PROJECT_DIR$/app01/configs/customer.py" />
+        <option value="$PROJECT_DIR$/app01/configs/student.py" />
+        <option value="$PROJECT_DIR$/app01/stark.py" />
       </list>
     </option>
   </component>
@@ -257,6 +245,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,26 +256,23 @@
             <path>
               <item name="oomph_2" type="b2602c69:ProjectViewProjectNode" />
               <item name="oomph_2" type="462c0819:PsiDirectoryNode" />
-              <item name="rbac" type="462c0819:PsiDirectoryNode" />
+              <item name="app01" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oomph_2" type="b2602c69:ProjectViewProjectNode" />
               <item name="oomph_2" type="462c0819:PsiDirectoryNode" />
-              <item name="rbac" type="462c0819:PsiDirectoryNode" />
-              <item name="templatetags" type="462c0819:PsiDirectoryNode" />
+              <item name="app01" type="462c0819:PsiDirectoryNode" />
+              <item name="configs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oomph_2" type="b2602c69:ProjectViewProjectNode" />
               <item name="oomph_2" type="462c0819:PsiDirectoryNode" />
-              <item name="rbac" type="462c0819:PsiDirectoryNode" />
-              <item name="templatetags" type="462c0819:PsiDirectoryNode" />
-              <item name="rbac.py" type="8704e2dd:PyFileNode" />
+              <item name="stark" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -427,13 +413,13 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.49713877" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43159205" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29353234" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11802575" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18168813" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22103004" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15522175" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3159204" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -482,235 +468,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utils/message/dingding.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/message/wx.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app01/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stark/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stark/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/pager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-214">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/fuck_page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/message/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="31" column="20" lean-forward="false" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#23#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/single_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-          <folding>
-            <element signature="e#577#605#0#HTML" expanded="false" />
-            <element signature="e#752#778#0#HTML" expanded="false" />
-            <element signature="e#945#1047#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/redis操作.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stark/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/files/uploadedfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="88" column="65" lean-forward="true" selection-start-line="88" selection-start-column="65" selection-end-line="88" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/message/email.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/message/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/xlrd/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2185">
-          <caret line="116" column="33" lean-forward="true" selection-start-line="116" selection-start-column="33" selection-end-line="116" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/multi_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/7131142d/e47e26cb-949d-4d78-8da9-8a7835d51aaf/main.app01_courserecord">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cccccccccccccc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1403">
-          <caret line="86" column="24" lean-forward="false" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
-          <folding>
-            <element signature="e#2076#2099#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/7131142d/e47e26cb-949d-4d78-8da9-8a7835d51aaf/main.app01_studyrecord">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stark/templates/stark/changelist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="57" column="59" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/public_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="36" column="43" lean-forward="false" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app01/configs/customer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="12" column="33" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#20#0" expanded="false" />
-            <element signature="e#740#817#0" expanded="false" />
-            <element signature="e#884#964#0" expanded="false" />
-            <element signature="e#1028#1107#0" expanded="false" />
-            <element signature="e#1171#1588#0" expanded="false" />
-            <element signature="e#1652#1890#0" expanded="false" />
-            <element signature="e#1652#1751#1" expanded="false" />
-            <element signature="e#1946#2187#0" expanded="false" />
-            <element signature="e#1946#2039#1" expanded="false" />
-            <element signature="e#2411#3027#0" expanded="false" />
-            <element signature="e#2411#2542#1" expanded="false" />
-            <element signature="e#2830#2879#0" expanded="false" />
-            <element signature="e#3965#4020#1" expanded="false" />
-            <element signature="e#6219#6473#0" expanded="false" />
-            <element signature="e#8265#8277#0" expanded="false" />
-            <element signature="e#8586#8597#0" expanded="false" />
-            <element signature="e#9006#9036#0" expanded="false" />
-            <element signature="e#10562#10573#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/highcharts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="36" lean-forward="false" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/highcharts-3d.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app01/configs/student.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/scores_view.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1910">
           <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -718,23 +479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app01/stark.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1042">
-          <caret line="159" column="46" lean-forward="false" selection-start-line="159" selection-start-column="46" selection-end-line="159" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#57#0" expanded="false" />
-            <element signature="e#2301#2964#0" expanded="false" />
-            <element signature="e#2301#2323#1" expanded="false" />
-            <element signature="e#3424#3530#1" expanded="false" />
-            <element signature="e#5948#7325#0" expanded="false" />
-            <element signature="e#6129#6149#0" expanded="false" />
-            <element signature="e#7567#7649#1" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -742,33 +486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
           <caret line="146" column="8" lean-forward="false" selection-start-line="146" selection-start-column="8" selection-end-line="146" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stark/templates/stark/form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rbac/static/rbac/rbac.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rbac/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#48#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -780,24 +497,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rbac/service/init_permission.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-568">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stark/templatetags/change_form.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#35#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app01/apps.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -806,7 +505,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/7131142d/e47e26cb-949d-4d78-8da9-8a7835d51aaf/main.rbac_user">
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oomph_2/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1103">
+          <caret line="142" column="29" lean-forward="false" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/http/request.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="55" column="16" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/fuck_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/pager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cccccccccccccc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="851">
+          <caret line="39" column="37" lean-forward="false" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+          <folding>
+            <element signature="e#2076#2099#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stark/templatetags/change_form.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stark/templates/stark/add_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stark/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/7131142d/e47e26cb-949d-4d78-8da9-8a7835d51aaf/main.auth_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/7131142d/e47e26cb-949d-4d78-8da9-8a7835d51aaf/main.rbac_role">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -820,98 +606,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stark/service/v1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="516" column="82" lean-forward="false" selection-start-line="516" selection-start-column="76" selection-end-line="516" selection-end-column="82" />
-          <folding>
-            <element signature="e#258#319#1" expanded="false" />
-            <element signature="e#475#754#1" expanded="false" />
-            <element signature="e#2700#2788#0" expanded="false" />
-            <element signature="e#2851#2876#0" expanded="false" />
-            <element signature="e#5496#5566#1" expanded="false" />
-            <element signature="e#5772#5804#0" expanded="false" />
-            <element signature="e#5839#5885#1" expanded="false" />
-            <element signature="e#6358#6400#1" expanded="false" />
-            <element signature="e#6409#6423#0" expanded="false" />
-            <element signature="e#6692#6732#0" expanded="false" />
-            <element signature="e#7042#7049#0" expanded="false" />
-            <element signature="e#7400#7429#0" expanded="false" />
-            <element signature="e#7893#7932#0" expanded="false" />
-            <element signature="e#8149#8197#0" expanded="false" />
-            <element signature="e#8393#8427#0" expanded="false" />
-            <element signature="e#8695#8970#0" expanded="false" />
-            <element signature="e#9264#9387#0" expanded="false" />
-            <element signature="e#9441#9935#0" expanded="false" />
-            <element signature="e#9592#9828#0" expanded="false" />
-            <element signature="e#9991#10108#0" expanded="false" />
-            <element signature="e#10480#10551#0" expanded="false" />
-            <element signature="e#10637#10661#0" expanded="false" />
-            <element signature="e#10761#11239#0" expanded="false" />
-            <element signature="e#10880#10913#0" expanded="false" />
-            <element signature="e#11329#11357#0" expanded="false" />
-            <element signature="e#11423#11534#0" expanded="false" />
-            <element signature="e#12011#12035#0" expanded="false" />
-            <element signature="e#12415#12521#0" expanded="false" />
-            <element signature="e#12612#12640#0" expanded="false" />
-            <element signature="e#12708#12778#0" expanded="false" />
-            <element signature="e#12829#12990#0" expanded="false" />
-            <element signature="e#13073#13216#0" expanded="false" />
-            <element signature="e#13914#13936#0" expanded="false" />
-            <element signature="e#13979#14149#0" expanded="false" />
-            <element signature="e#14186#14346#0" expanded="false" />
-            <element signature="e#14579#14748#0" expanded="false" />
-            <element signature="e#14857#15081#1" expanded="false" />
-            <element signature="e#16677#16687#0" expanded="false" />
-            <element signature="e#20227#21575#0" expanded="false" />
-            <element signature="e#21538#21575#0" expanded="false" />
-          </folding>
+    <entry file="das://table:/7131142d/e47e26cb-949d-4d78-8da9-8a7835d51aaf/main.rbac_user_roles">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-          <folding />
+    <entry file="das://table:/7131142d/e47e26cb-949d-4d78-8da9-8a7835d51aaf/main.rbac_menu">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rbac/stark.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-25">
-          <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#28#0" expanded="false" />
-          </folding>
+    <entry file="das://table:/7131142d/e47e26cb-949d-4d78-8da9-8a7835d51aaf/main.rbac_role_permissions">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rbac/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding />
+    <entry file="das://table:/7131142d/e47e26cb-949d-4d78-8da9-8a7835d51aaf/main.rbac_group">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rbac/middlewares/rbac.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="e#131#623#0" expanded="false" />
-            <element signature="e#981#1932#0" expanded="false" />
-          </folding>
+    <entry file="das://table:/7131142d/e47e26cb-949d-4d78-8da9-8a7835d51aaf/main.rbac_permission">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app01/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="27" column="52" lean-forward="false" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+        <state relative-caret-position="184">
+          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="14" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
             <element signature="e#132#375#0" expanded="false" />
             <element signature="e#132#185#1" expanded="false" />
             <element signature="e#358#375#0" expanded="false" />
@@ -956,10 +691,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://table:/7131142d/e47e26cb-949d-4d78-8da9-8a7835d51aaf/main.rbac_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stark/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oomph_2/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="54" column="1" lean-forward="true" selection-start-line="54" selection-start-column="1" selection-end-line="54" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stark/static/stark/css/stark-form.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/contrib/staticfiles/templatetags/staticfiles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#27#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app01/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+        <state relative-caret-position="479">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
             <element signature="e#472#494#0" expanded="false" />
@@ -967,53 +743,222 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rbac/templates/rbac/xxx.html">
+    <entry file="file://$PROJECT_DIR$/rbac/static/rbac/rbac.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rbac/static/rbac/rbac.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stark/templates/stark/layout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
-          <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oomph_2/settings.py">
+    <entry file="file://$PROJECT_DIR$/stark/templates/stark/popup_response.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="151" column="1" lean-forward="false" selection-start-line="151" selection-start-column="1" selection-end-line="151" selection-end-column="1" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oomph_2/urls.py">
+    <entry file="file://$PROJECT_DIR$/stark/templates/stark/form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+        <state relative-caret-position="736">
+          <caret line="32" column="21" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rbac/templatetags/rbac.py">
+    <entry file="file://$PROJECT_DIR$/templates/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-613">
-          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        <state relative-caret-position="477">
+          <caret line="52" column="7" lean-forward="false" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/stark/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="30" column="121" lean-forward="false" selection-start-line="30" selection-start-column="121" selection-end-line="30" selection-end-column="121" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
-          <caret line="4" column="44" lean-forward="false" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/stark/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-106">
+          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/public_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rbac/service/init_permission.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rbac/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rbac/templates/rbac/xxx.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rbac/stark.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rbac/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="37" column="10" lean-forward="false" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rbac/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rbac/templatetags/rbac.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="897">
+          <caret line="39" column="23" lean-forward="true" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rbac/middlewares/rbac.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1127">
+          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app01/configs/student.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app01/configs/customer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#707#11309#0" expanded="false" />
+            <element signature="e#793#870#0" expanded="false" />
+            <element signature="e#937#1017#0" expanded="false" />
+            <element signature="e#1081#1160#0" expanded="false" />
+            <element signature="e#1705#1943#0" expanded="false" />
+            <element signature="e#1705#1804#1" expanded="false" />
+            <element signature="e#1999#2240#0" expanded="false" />
+            <element signature="e#1999#2092#1" expanded="false" />
+            <element signature="e#2464#3080#0" expanded="false" />
+            <element signature="e#2464#2595#1" expanded="false" />
+            <element signature="e#2883#2932#0" expanded="false" />
+            <element signature="e#4018#4073#1" expanded="false" />
+            <element signature="e#8318#8330#0" expanded="false" />
+            <element signature="e#8639#8650#0" expanded="false" />
+            <element signature="e#9059#9089#0" expanded="false" />
+            <element signature="e#10615#10626#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app01/stark.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stark/service/v1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3153">
+          <caret line="276" column="0" lean-forward="true" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="0" />
+          <folding>
+            <element signature="e#258#319#1" expanded="false" />
+            <element signature="e#475#754#1" expanded="false" />
+            <element signature="e#1247#4358#0" expanded="false" />
+            <element signature="e#2700#2788#0" expanded="false" />
+            <element signature="e#2851#2876#0" expanded="false" />
+            <element signature="e#5839#5885#1" expanded="false" />
+            <element signature="e#6358#6400#1" expanded="false" />
+            <element signature="e#6409#6423#0" expanded="false" />
+            <element signature="e#6692#6732#0" expanded="false" />
+            <element signature="e#7042#7049#0" expanded="false" />
+            <element signature="e#7400#7429#0" expanded="false" />
+            <element signature="e#7893#7932#0" expanded="false" />
+            <element signature="e#8149#8197#0" expanded="false" />
+            <element signature="e#8393#8427#0" expanded="false" />
+            <element signature="e#9264#9387#0" expanded="false" />
+            <element signature="e#9441#9935#0" expanded="false" />
+            <element signature="e#9592#9828#0" expanded="false" />
+            <element signature="e#9991#10108#0" expanded="false" />
+            <element signature="e#10913#10946#0" expanded="false" />
+            <element signature="e#12741#12811#0" expanded="false" />
+            <element signature="e#13106#13249#0" expanded="false" />
+            <element signature="e#13947#13969#0" expanded="false" />
+            <element signature="e#14890#15114#1" expanded="false" />
+            <element signature="e#16710#16720#0" expanded="false" />
+            <element signature="e#21571#21608#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

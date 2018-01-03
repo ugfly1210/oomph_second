@@ -6,16 +6,35 @@ from django.utils.safestring import mark_safe
 from app01.configs.customer import CustomerConfig
 from app01.configs.student import StudentConfig
 
+class BasePermission(object):
+    def get_show_add_btn(self):
+        code_list = self.request.permission_code_list
+        if 'add' in  code_list:
+            return True
 
-class DepartmentConfig(v1.StarkConfig):
+    def get_edit_link(self):
+        code_list = self.request.permission_code_list
+        if 'edit' in code_list:
+            return True
+
+    def get_list_display(self):
+        code_list = self.request.permission_code_list
+        data = []
+        if self.list_display:
+            data.extend(self.list_display)
+            if 'del' in code_list:
+                data.append(v1.StarkConfig.delete)
+            data.insert(0, v1.StarkConfig.checkbox)
+        return data
+
+class DepartmentConfig(BasePermission,v1.StarkConfig):
     list_display = ['title','code']
     edit_link = ['title']
 v1.site.register(models.Department,DepartmentConfig)
 
 
-class UserInfoConfig(v1.StarkConfig):
+class UserInfoConfig(BasePermission,v1.StarkConfig):
     list_display = ['name','username','email','depart']
-
     # 组合搜索
     comb_filter = [
         v1.FilterOption('depart',text_func_name=lambda x:str(x),val_func_name=lambda x:x.code) # 字段  只在chioce,fk,m2m有用
@@ -29,19 +48,22 @@ class UserInfoConfig(v1.StarkConfig):
 v1.site.register(models.UserInfo,UserInfoConfig)
 
 
-class CourseConfig(v1.StarkConfig):
+class CourseConfig(BasePermission,v1.StarkConfig):
     list_display = ['name']
     edit_link = ['name',]
 v1.site.register(models.Course,CourseConfig)
 
 
-class SchoolConfig(v1.StarkConfig):
+class SchoolConfig(BasePermission,v1.StarkConfig):
     list_display = ['title']
     edit_link = ['title',]
+
+
+
 v1.site.register(models.School,SchoolConfig)
 
 
-class ClassListConfig(v1.StarkConfig):
+class ClassListConfig(BasePermission,v1.StarkConfig):
     def course_semester(self,obj=None,is_header=None):
         if is_header:
             return '班级'
@@ -80,7 +102,7 @@ v1.site.register(models.ClassList,ClassListConfig)
 v1.site.register(models.Customer,CustomerConfig)
 
 
-class ConsultRecordConfig(v1.StarkConfig):
+class ConsultRecordConfig(BasePermission,v1.StarkConfig):
     """
     客户跟进记录
     """
@@ -107,7 +129,7 @@ class ConsultRecordConfig(v1.StarkConfig):
 v1.site.register(models.ConsultRecord,ConsultRecordConfig)
 
 
-class CourseRecordConfig(v1.StarkConfig):
+class CourseRecordConfig(BasePermission,v1.StarkConfig):
     """上课记录表"""
     def extra_url(self):
         app_model_name = (self.model_class._meta.app_label, self.model_class._meta.model_name,)
@@ -214,7 +236,7 @@ v1.site.register(models.CourseRecord,CourseRecordConfig)
 
 
 # 学生的学习记录
-class StudyRecordConfig(v1.StarkConfig):
+class StudyRecordConfig(BasePermission,v1.StarkConfig):
     """
     1. 初始化学生学习记录
 

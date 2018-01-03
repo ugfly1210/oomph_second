@@ -1,6 +1,7 @@
 import re
 from django.template import Library
 from django.conf import settings
+
 register = Library()
 
 @register.inclusion_tag("rbac/xxx.html")
@@ -44,5 +45,4 @@ def menu_html(request):
                     { 'title': item['title'], 'url': item['url'],'active':active}
                 ]
             }
-
     return {'menu_dict':result}

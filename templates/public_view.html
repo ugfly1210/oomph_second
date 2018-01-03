@@ -1,15 +1,7 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>公共资源界面&支持抢单</title>
+{% extends 'stark/layout.html' %}
 
-{#    <link rel="stylesheet" href="{% static "stark/bootstrap/css/bootstrap.css" %}" />#}
-    <link rel="stylesheet" href="{% static 'stark/bootstrap/css/bootstrap.css' %}"/>
-</head>
-<body>
-<div class="container" style="margin-top: 100px">
+{% block body %}
+<div class="container" >
 
 <div class="col-md-10">
 <h1>公共资源界面 & 支持抢单</h1>
@@ -42,5 +34,4 @@
 </table>
 </div>
 </div>
-</body>
-</html>
+{% endblock %}

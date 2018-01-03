@@ -17,7 +17,6 @@ class Group(models.Model):
     def __str__(self):
         return self.caption
 
-
 class Permission(models.Model):
     """
     权限表

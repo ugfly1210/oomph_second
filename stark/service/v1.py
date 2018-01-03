@@ -270,7 +270,7 @@ class StarkConfig(object):
         data = []
         if self.list_display:
             data.extend(self.list_display)
-            data.append(StarkConfig.edit)
+            # data.append(StarkConfig.edit)
             data.append(StarkConfig.delete)
             data.insert(0,StarkConfig.checkbox)
         return data
@@ -279,7 +279,8 @@ class StarkConfig(object):
     edit_link = []
     def get_edit_link(self):
         result = []
-        result.extend(self.edit_link)
+        if self.edit_link:
+            result.extend(self.edit_link)
         return result
 
 

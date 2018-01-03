@@ -11,7 +11,7 @@ from cccccccccccccc import AutoSale
 from stark.service import v1
 from utils import message
 from django.db import transaction
-
+from app01.stark import BasePermission
 
 class SingleModelForm(ModelForm):
     class Meta:
@@ -19,7 +19,7 @@ class SingleModelForm(ModelForm):
         exclude = ['consultant','status','recv_date','last_consult_date']
 
 
-class CustomerConfig(v1.StarkConfig):
+class CustomerConfig(BasePermission,v1.StarkConfig):
     order_by = ['-status']
 
     def display_gender(self,obj=None,is_header=None):

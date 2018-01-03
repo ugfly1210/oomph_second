@@ -31,6 +31,7 @@ def init_permission(user,request):
         }
         sub_permission_list.append(tpl)
     request.session[settings.PERMISSION_MENU_KEY] = sub_permission_list
+    # print('sub_permission_list===',sub_permission_list)
 
     # 权限相关
     result = {}
@@ -48,3 +49,4 @@ def init_permission(user,request):
             }
 
     request.session[settings.PERMISSION_URL_DICT_KEY] = result
+    # print('result===',result)
