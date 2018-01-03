@@ -27,7 +27,7 @@ class StudentConfig(BasePermission,v1.StarkConfig):
 
         # 学生和班级是多对多，所以拿到的是classlist，可以查看当前学生在不同班级的所有成绩
         class_list = obj.class_list.all()
-        return render(request,'scores_view.html',{'class_list':class_list,'sid':sid})
+        return render(request, 'scores_view.html', {'class_list':class_list, 'sid':sid})
 
     def scores_chart(self,request):
         ret = {'status': False, 'data': None, 'msg': None}
@@ -54,3 +54,4 @@ class StudentConfig(BasePermission,v1.StarkConfig):
         return mark_safe('<a href="%s">查看成绩</a>'%surl)
 
     list_display = ['username', 'emergency_contract',display_score]
+v1.site.register(models.Student,StudentConfig)

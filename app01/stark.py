@@ -3,10 +3,11 @@ from stark.service import v1
 from app01 import models
 from django.conf.urls import url
 from django.utils.safestring import mark_safe
-from app01.configs.customer import CustomerConfig
-from app01.configs.student import StudentConfig
+# from app01.configs.customer import CustomerConfig
+# from app01.configs.student import StudentConfig
 
 class BasePermission(object):
+
     def get_show_add_btn(self):
         code_list = self.request.permission_code_list
         if 'add' in  code_list:
@@ -14,8 +15,10 @@ class BasePermission(object):
 
     def get_edit_link(self):
         code_list = self.request.permission_code_list
-        if 'edit' in code_list:
-            return True
+        if "edit" in code_list:
+            return super(BasePermission, self).get_edit_link()
+        else:
+            return []
 
     def get_list_display(self):
         code_list = self.request.permission_code_list
@@ -26,6 +29,7 @@ class BasePermission(object):
                 data.append(v1.StarkConfig.delete)
             data.insert(0, v1.StarkConfig.checkbox)
         return data
+
 
 class DepartmentConfig(BasePermission,v1.StarkConfig):
     list_display = ['title','code']
@@ -99,7 +103,7 @@ class ClassListConfig(BasePermission,v1.StarkConfig):
 v1.site.register(models.ClassList,ClassListConfig)
 
 
-v1.site.register(models.Customer,CustomerConfig)
+# v1.site.register(models.Customer,CustomerConfig)
 
 
 class ConsultRecordConfig(BasePermission,v1.StarkConfig):
@@ -285,4 +289,4 @@ class StudyRecordConfig(BasePermission,v1.StarkConfig):
 v1.site.register(models.StudyRecord,StudyRecordConfig)
 
 
-v1.site.register(models.Student,StudentConfig)
+# v1.site.register(models.Student,StudentConfig)

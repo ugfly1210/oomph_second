@@ -133,7 +133,7 @@ class CustomerConfig(BasePermission,v1.StarkConfig):
         con.add(q2,'AND')
         customer_list = models.Customer.objects.filter(con)
 
-        return render(request,'public_view.html',{'customer_list':customer_list,"current_user_id":current_user_id})
+        return render(request, 'public_view.html', {'customer_list':customer_list, "current_user_id":current_user_id})
 
     def competition_view(self,request,cid):
         """
@@ -160,13 +160,13 @@ class CustomerConfig(BasePermission,v1.StarkConfig):
         """当前登录用户的所有的客户(在我这成单的,以及我正在跟进的)"""
         current_user_id = 9
         customer_list = models.CustomerDistribution.objects.filter(user_id=current_user_id).order_by('status')
-        return render(request,'user_view.html',{'customer_list':customer_list})
+        return render(request, 'user_view.html', {'customer_list':customer_list})
 
     def single_view(self,request):
         """单条录入客户信息"""
         if request.method == 'GET':
             form = SingleModelForm()
-            return render(request,'single_view.html',{'form':form})
+            return render(request, 'single_view.html', {'form':form})
         else:
             current_date = datetime.datetime.now().date()
             form = SingleModelForm(request.POST)
@@ -192,12 +192,12 @@ class CustomerConfig(BasePermission,v1.StarkConfig):
                     return HttpResponse('录入异常')
                 return  HttpResponse('录入成功')
             else:
-                return render(request,'single_view.html',{'form':form})
+                return render(request, 'single_view.html', {'form':form})
 
     def multi_view(self,request):
         """批量导入"""
         if request.method == 'GET':
-            return render(request,'multi_view.html')
+            return render(request, 'multi_view.html')
         else:
             from django.core.files.uploadedfile import InMemoryUploadedFile
             file_obj = request.FILES.get('exfile')
@@ -252,7 +252,7 @@ class CustomerConfig(BasePermission,v1.StarkConfig):
                     return HttpResponse('录入异常')
                 return  HttpResponse('录入成功')
             else:
-                return render(request,'multi_view.html')
+                return render(request, 'multi_view.html')
 
     # # 为用户提供模版
     # def download_file(request):
@@ -273,3 +273,4 @@ class CustomerConfig(BasePermission,v1.StarkConfig):
     #             else:
     #                 break
 
+v1.site.register(models.Customer,CustomerConfig)
