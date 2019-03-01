@@ -148,5 +148,5 @@ PERMISSION_MENU_KEY = "afsdfasdfadfsdfsdf"
 
 VALID_URL = [
     "/login/",
-    "/index/"
+    "/index/",
 ]

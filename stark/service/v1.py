@@ -169,7 +169,7 @@ class ChangeList(object):
         # 帮助生成页面上显示的东西
         # 处理表中的数据
         # [ UserInfoObj,UserInfoObj,UserInfoObj,UserInfoObj,]
-        # [ UserInfo(id=1,name='alex',age=18),UserInfo(id=2,name='alex2',age=181),]
+        # [ UserInfo(id=1,name='ff',age=18),UserInfo(id=2,name='ff2',age=181),]
         data_list = self.data_list
         new_data_list = []
         for row in data_list:
@@ -469,8 +469,8 @@ class StarkConfig(object):
 
                     from django.db.models.fields.reverse_related import ManyToOneRel, ManyToManyRel
                     result = {'status':False,'id':None,'text':None,'popbackid':_popbackid}
-                    model_name = request.GET.get('model_name') # 获得当前所在的类名 customer
-                    related_name = request.GET.get('related_name') #获得related_name  consultant                related_name = request.GET.get('related_name') #获得related_name
+                    model_name = request.GET.get('model_name')     # 获得当前所在的类名 customer
+                    related_name = request.GET.get('related_name') # 获得related_name  consultant                related_name = request.GET.get('related_name') #获得related_name
                     # print(model_name,related_name,new_obj._meta.model_name)   customer consultant userinfo
                     for related_obj in new_obj._meta.related_objects:
                         _model_name = related_obj.model._meta.model_name # 当前增加的表的名称
@@ -568,3 +568,5 @@ class StarkSite(object):
         return (self.get_urls(),None,'stark')
 
 site = StarkSite()
+
+

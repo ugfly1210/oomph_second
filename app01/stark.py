@@ -41,7 +41,7 @@ class UserInfoConfig(BasePermission,v1.StarkConfig):
     list_display = ['name','username','email','depart']
     # 组合搜索
     comb_filter = [
-        v1.FilterOption('depart',text_func_name=lambda x:str(x),val_func_name=lambda x:x.code) # 字段  只在chioce,fk,m2m有用
+        v1.FilterOption('depart',text_func_name=lambda x:str(x),val_func_name=lambda x:x.code) # 字段  只在choice,fk,m2m有用
     ]                          # 这俩函数就是为了防止你自定义的fk的值不是主键用的
 
     edit_link = ['name']
@@ -61,9 +61,6 @@ v1.site.register(models.Course,CourseConfig)
 class SchoolConfig(BasePermission,v1.StarkConfig):
     list_display = ['title']
     edit_link = ['title',]
-
-
-
 v1.site.register(models.School,SchoolConfig)
 
 
@@ -126,7 +123,7 @@ class ConsultRecordConfig(BasePermission,v1.StarkConfig):
 
         ct = models.Customer.objects.filter(id=customer,consultant_id=current_login_user_id).first()
         if not ct :
-            return HttpResponse('好好干你的活,拉你的人不行吗??? 嗯???💩💩💩💩💩💩💩💩💩💩')
+            return HttpResponse('好好干你的活,拉你的人不行吗??? ')
         return super(ConsultRecordConfig, self).changelist_view(request,*args,**kwargs)
 
     list_display = ['customer','consultant','date']
@@ -153,7 +150,12 @@ class CourseRecordConfig(BasePermission,v1.StarkConfig):
             from django.forms import Form
             from django.forms import fields
             from django.forms import widgets
+            ##方式一
+            # study_record_list = models.StudyRecord.objects.filter(course_record_id=record_id)  #这一天上课的所有的学生的学习记录
+            # score_choices = models.StudyRecord.score_choices
+            # return render(request,"score_list.html",{"study_record_list":study_record_list,"score_choices":score_choices})
 
+            # 改款
             # class TestForm(Form):
             #     score = fields.ChoiceField(choices=models.StudyRecord.record_choices)
             #     homeword_note = fields.CharField(widget=widgets.Textarea())
@@ -170,6 +172,13 @@ class CourseRecordConfig(BasePermission,v1.StarkConfig):
             return render(request,'score_list.html',{'data':data})
         else:
             data_dict = {}
+            """
+            构造这样的字典，目的是保存更新数据库里面的数据，字典的结构的
+            {
+                3:{"score":2,"homework_note":2}
+                4:{"score":4,"homework_note":4}
+            }
+            """
             for key, value in request.POST.items():
                 if key == "csrfmiddlewaretoken":
                     continue
@@ -206,8 +215,11 @@ class CourseRecordConfig(BasePermission,v1.StarkConfig):
         """自定义批量初始化方法"""
         # 上课记录id列表
         pk_list = request.POST.getlist('pk')
+
+        print(pk_list)
         # 上课记录对象列表
         record_list = models.CourseRecord.objects.filter(id__in=pk_list)
+        print(record_list)
         # print(record_list)
         # # 这种是，遍历每一个学生，查看是否存在记录。
         # for record in record_list:
@@ -239,54 +251,7 @@ class CourseRecordConfig(BasePermission,v1.StarkConfig):
 v1.site.register(models.CourseRecord,CourseRecordConfig)
 
 
-# 学生的学习记录
-class StudyRecordConfig(BasePermission,v1.StarkConfig):
-    """
-    1. 初始化学生学习记录
 
-    2. 考勤管理
-
-    3. 录成绩
-
-    4. 查看到学生所有成绩【highchart】
-    """
-    # 出勤信息(choices选项)
-    def display_record(self,obj=None,is_header=False):
-        if is_header:
-            return '出勤'
-        return obj.get_record_display()
-    list_display = ['student','course_record',display_record]
-
-    comb_filter = [
-        v1.FilterOption('course_record')
-    ]
-
-    def action_checked(self,request):
-        pass
-    action_checked.short_desc = '签到'
-
-    def action_vacate(self, request):
-        pass
-    action_vacate.short_desc = "请假"
-
-    def action_late(self, request):
-        pass
-    action_late.short_desc = "迟到"
-
-    def action_noshow(self, request):
-        pk_list = request.POST.getlist('pk')
-        models.StudyRecord.objects.filter(id__in=pk_list).update(record='noshow')
-    action_noshow.short_desc = "缺勤"
-
-    def action_leave_early(self, request):
-        pass
-    action_leave_early.short_desc = "早退"
-
-    actions = [action_checked, action_vacate, action_late, action_noshow, action_leave_early]
-    show_actions = True
-
-    show_add_btn = False # 在上课记录里面，不允许创建
-v1.site.register(models.StudyRecord,StudyRecordConfig)
 
 
 # v1.site.register(models.Student,StudentConfig)

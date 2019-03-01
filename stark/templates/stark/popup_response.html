@@ -8,7 +8,7 @@
     <script>
         (function () {
             var dic = {{ json_result|safe }};
-            opener.popupCallback(dic);
+            opener.popupCallback(dic);  // 执行原页面popupCallback函数将dic传过去
             window.close();
         })()
 

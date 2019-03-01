@@ -61,6 +61,7 @@ class RbacMiddleware(MiddlewareMixin):
                 regax = "^{0}$".format(db_url)
                 if re.match(regax, current_url):
                     request.permission_code_list = code_url['codes']
+                    print('request.permission_code_list===',request.permission_code_list)
                     flag = True
                     break
             if flag:

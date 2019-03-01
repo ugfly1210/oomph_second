@@ -56,7 +56,7 @@ class CustomerConfig(BasePermission,v1.StarkConfig):
         """
         if is_header:
             return '客户状态'
-        # print('obj......',obj)   姓名:骚伟,QQ:123456
+        # print('obj......',obj)   姓名:yy,QQ:123456
         return obj.get_status_display()
 
     def record(self,obj=None,is_header=None):
@@ -272,5 +272,8 @@ class CustomerConfig(BasePermission,v1.StarkConfig):
     #                 yield c
     #             else:
     #                 break
+
+
+
 
 v1.site.register(models.Customer,CustomerConfig)
